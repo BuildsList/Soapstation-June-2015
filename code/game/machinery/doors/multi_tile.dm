@@ -25,3 +25,10 @@
 	opacity = 0
 	glass = 1
 	assembly_type = /obj/structure/door_assembly/multi_tile
+
+/obj/machinery/door/airlock/multi_tile/rglass
+	name = "Glass Airlock"
+	icon = 'icons/obj/doors/Door2x1Secglass.dmi'
+	opacity = 0
+	glass = 1
+	assembly_type = /obj/structure/door_assembly/multi_tile
