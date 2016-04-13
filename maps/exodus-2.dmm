@@ -1989,7 +1989,7 @@
 "Pj" = (/obj/item/robot_parts/head,/obj/structure/table/glass,/turf/unsimulated/floor{tag = "icon-cult"; name = "plating"; icon_state = "cult"},/area/wizard_station)
 "Pk" = (/mob/living/carbon/human/monkey{name = "Murphey"},/turf/unsimulated/floor{icon_state = "freezerfloor"; dir = 2},/area/wizard_station)
 "Pl" = (/obj/item/weapon/material/knife/ritual,/turf/unsimulated/floor{icon_state = "freezerfloor"; dir = 2},/area/wizard_station)
-
+=======
 (1,1,1) = {"
 aaabacadaeafagahaaaiajakalamanaoagafajacadahakaeamaiaoalahajeEapaqarasatauavawaxayazaAaBaCaDaEaFaGaHaIaJaKawaxayazaAaBaCaDaEaFaLaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMtwtwtwtwtwtwtwtwtwtwtwtwtwaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMdCaNaNaNaNaNaNaNaNaNaNdCaNaNaNaNaNaNaNaNaNaNdCaNaNaNaNaNaNaNaNaNaNdCaNaNaNaNaNaNaNaNaNaNdCaNaNaNaNaNaNaNaNaNaNdCaNaNaNaNaNaNaNaNaNaNdCaNaNaNaNaNaNaNaNaNaNdC
 ajaRaSaTaUaVaWaXaYaZbabbbcbdbebfaWaVbaaSaTaXbbaUbdaZbfbcaXbaabatauavbgbhbibjaAbkblbmapaqarasatauavbgbhbibjbnbkblbmapaqarasataJaLaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMtwaPaOtwaPaQtwaPbotwaPaOtwaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMaMbqbpbpbpbCbpbpbpbpbpbpbrbsbtbsbtbsbsbtbsbtbsbrbubwbwbwbwbwbwbwbwbwbrbybxbzbzbzbzbzbzbzbzbrbAbAbAbAbAbAbAbAbAbAbrbBbBbBbBbBbBbBbBbBbBbrbGbIbHbKbJbJbJbJbJbNbM

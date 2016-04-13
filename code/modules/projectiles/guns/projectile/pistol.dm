@@ -47,6 +47,28 @@
 	name = "custom .45 Pistol"
 	icon_state = "secgundark"
 
+/obj/item/weapon/gun/projectile/sec/hop
+	name = "\improper NT Mk58 signal pistol"
+	magazine_type = /obj/item/ammo_magazine/c45m/flash
+
+/obj/item/weapon/gun/projectile/sec/hop/verb/rename_gun()
+	set name = "Name Gun"
+	set category = "Object"
+	set desc = "Click to rename your gun. If you're the Head of Personnel."
+
+	var/mob/M = usr
+	if(!M.mind)	return 0
+	if(!M.mind.assigned_role == "Head of Personnel")
+		M << "<span class='notice'>You don't feel cool enough to name this gun, chump.</span>"
+		return 0
+
+	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
+
+	if(src && input && !M.stat && in_range(M,src))
+		name = input
+		M << "You name the gun [input]. Say hello to your new friend."
+		return 1
+
 /obj/item/weapon/gun/projectile/silenced
 	name = "silenced pistol"
 	desc = "A small, quiet,  easily concealable gun. Uses .45 rounds."

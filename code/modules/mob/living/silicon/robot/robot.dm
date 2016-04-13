@@ -460,12 +460,12 @@
 				usr << "\blue You install the [W.name]."
 
 				return
-
+/*
 	if (istype(W, /obj/item/weapon/weldingtool))
 		if (src == user)
 			user << "<span class='warning'>You lack the reach to be able to repair yourself.</span>"
 			return
-
+*/
 		if (!getBruteLoss())
 			user << "Nothing to fix here!"
 			return

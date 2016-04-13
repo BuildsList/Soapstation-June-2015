@@ -156,6 +156,9 @@ var/const/enterloopsanity = 100
 /turf/proc/is_plating()
 	return 0
 
+/turf/proc/is_electromagnetic()
+ 	return 0
+
 /turf/proc/inertial_drift(atom/movable/A as mob|obj)
 	if(!(A.last_move))	return
 	if((istype(A, /mob/) && src.x > 2 && src.x < (world.maxx - 1) && src.y > 2 && src.y < (world.maxy-1)))

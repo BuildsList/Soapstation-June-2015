@@ -422,6 +422,7 @@ default behaviour is:
 	setOxyLoss(0)
 	setCloneLoss(0)
 	setBrainLoss(0)
+	setHalLoss(0)
 	SetParalysis(0)
 	SetStunned(0)
 	SetWeakened(0)
@@ -609,6 +610,55 @@ default behaviour is:
 	if( src.loc && (istype(src.loc, /obj/structure/closet)) )
 		var/obj/structure/closet/C = loc
 		spawn() C.mob_breakout(src)
+
+	//Escaping bag of holding
+	else if(istype(get_turf(src), /turf/simulated/floor/bluespace))
+		var/mob/living/carbon/human/H = src
+		var/obj/item/weapon/storage/backpack/holding/bag = null
+		var/obj/item/crew_item/C = null
+		for(var/obj/item/crew_item/crew in crew_items)
+			if(crew.contained == H)
+				C = crew
+				bag = crew.holding
+				break
+
+		if(bag)
+			C.escaping = 1
+			H << "\blue You begin to fight back against the bluespace (this will take about 3 minutes and requires you to be standing the whole time)"
+			if(do_after(H, 600, 5, 0)) //give slight message
+				H << "\blue You feel yourself starting to make progress pushing into the bluespace"
+				if(bag.user)
+					bag.user << "\red <b>You feel a slight rumbling coming from your bag of holding</b>"
+					for(var/mob/M in range(2, bag.user))
+						if(M != bag.user)
+							M << "\red <b>You see a slight vibration emanating from [bag.user.name]'s bag</b>"
+				else
+					for(var/mob/M in range(2, bag))
+						M << "\red <b>You see a slight vibration emanating from the bag of holding</b>"
+				if(do_after(H, 600, 5, 0)) //give major message
+					H << "\blue You feel close to escaping the bluespace!"
+					if(bag.user)
+						bag.user << "\red <b>You feel a massive rumbling from your bag, as if something is trying to get out</b>"
+						for(var/mob/M in range(4, bag.user))
+							if(M != bag.user)
+								M << "\red <b>You see a major vibration coming from [bag.user.name]'s bag</b>"
+					else
+						for(var/mob/M in range(4, bag))
+							M << "\red <b>You see a major vibration coming from the bag of holding</b>"
+					if(do_after(H, 600, 5, 0)) //get user out
+						if(bag.user)
+							for(var/mob/M in range(7, bag.user))
+								M << "\blue You see [H.name] emerge suddenly from the bag of holding!"
+						else
+							for(var/mob/M in range(7, bag))
+								M << "\blue You see [H.name] emerge suddenly from the bag of holding!"
+						C.on_exit_storage(bag)
+					else
+						H << "\red The bluespace slips away from you, you'll have to try again"
+				else
+					H << "\red The bluespace slips away from you, you'll have to try again"
+			else
+				H << "\red The bluespace slips away from you, you'll have to try again"
 
 /mob/living/proc/escape_inventory(obj/item/weapon/holder/H)
 	if(H != src.loc) return

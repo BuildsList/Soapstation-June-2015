@@ -152,12 +152,16 @@
 	explode()
 
 /obj/structure/reagent_dispensers/fueltank/proc/explode()
-	if (reagents.total_volume > 500)
-		explosion(src.loc,1,2,4)
-	else if (reagents.total_volume > 100)
-		explosion(src.loc,0,1,3)
-	else if (reagents.total_volume > 50)
-		explosion(src.loc,-1,1,2)
+	if(tanks_can_explode)
+		if (reagents.total_volume > 500)
+			explosion(src.loc,1,2,4)
+		else if (reagents.total_volume > 100)
+			explosion(src.loc,0,1,3)
+		else if (reagents.total_volume > 50)
+			explosion(src.loc,-1,1,2)
+	else
+		message_admins("Fueltank explosion prevented at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>).", 0, 1)
+
 	if(src)
 		qdel(src)
 

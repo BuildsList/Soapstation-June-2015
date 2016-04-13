@@ -289,7 +289,7 @@
 
 /client/proc/event_manager_panel()
 	set name = "Event Manager Panel"
-	set category = "Admin"
+	set category = "Event Verbs"
 	if(event_manager)
 		event_manager.Interact(usr)
 	feedback_add_details("admin_verb","EMP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

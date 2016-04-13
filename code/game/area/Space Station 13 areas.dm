@@ -512,7 +512,7 @@ area/space/atmosalert()
 	icon_state = "south"
 
 /area/syndicate_station/mining
-	name = "\improper northeast of the mining station"
+	name = "\improper north east of the mining station"
 	icon_state = "north"
 
 /area/syndicate_station/arrivals_dock
@@ -1996,6 +1996,22 @@ area/space/atmosalert()
 	name = "\improper Telecommunications Power Control"
 	icon_state = "tcomsatwest"
 
+//Corporate Alliance
+/area/alliance/base1
+	name = "\improper CA base"
+	icon_state = "bridge"
+
+/area/alliance/Base1Checkpoint1
+	name = "\improper Exterior Checkpoint"
+	icon_state = "bridge"
+
+/area/alliance/Base1Checkpoint2
+	name = "\improper Interior Checkpoint"
+	icon_state = "bridge"
+
+/area/alliance/Base1EntranceMain
+	name = "\improper CMB Caucasus Entrance"
+	icon_state = "bridge"
 
 // Away Missions
 /area/awaymission

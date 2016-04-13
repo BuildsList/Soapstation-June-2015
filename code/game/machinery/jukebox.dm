@@ -33,6 +33,17 @@ datum/track/New(var/title_name, var/audio)
 		new/datum/track("Part A", 'sound/misc/TestLoop1.ogg'),
 		new/datum/track("Scratch", 'sound/music/title1.ogg'),
 		new/datum/track("Trai`Tor", 'sound/music/traitor.ogg'),
+		new/datum/track("Manfred M - Blinded by the light", 'sound/music/Blinded.ogg'),
+		new/datum/track("Still Alive", 'sound/music/portal_still_alive.mid'),
+		new/datum/track("Space Oddity", 'sound/music/space_oddity.ogg'),
+		new/datum/track("Space Asshole", 'sound/music/space_asshole.ogg'),
+		new/datum/track("Chris Remo - The Wizard", 'sound/music/wizard.ogg'),
+		new/datum/track("Foreigner - Juke Box Hero", 'sound/music/jukeboxhero.ogg'),
+		new/datum/track("Gloria - I Will Survive", 'sound/music/I_will_survive.ogg'),
+		new/datum/track("Gary J - Mad World", 'sound/music/Mad_World.ogg'),
+		new/datum/track("Cyndi Kate - I Need a Hero", 'sound/music/NeedaHero.ogg'),
+
+
 	)
 
 

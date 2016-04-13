@@ -20,6 +20,7 @@
 	var/turns_since_scan = 0
 	var/mob/living/simple_animal/mouse/movement_target
 	var/mob/flee_target
+	var/ammount_grown = 0
 	min_oxy = 16 //Require atleast 16kPA oxygen
 	minbodytemp = 223		//Below -50 Degrees Celcius
 	maxbodytemp = 323	//Above 50 Degrees Celcius
@@ -233,6 +234,7 @@
 	icon_living = "kitten"
 	icon_dead = "kitten_dead"
 	gender = NEUTER
+	var/amount_grown = 0
 
 // Leaving this here for now.
 /obj/item/weapon/holder/cat/fluff/bones
@@ -255,3 +257,15 @@
 /mob/living/simple_animal/cat/kitten/New()
 	gender = pick(MALE, FEMALE)
 	..()
+
+//The following code makes kittens grow into cats, changing the number 100 will adjust the growth rate, higher number means faster growing vice-versa.\\
+
+/mob/living/simple_animal/cat/kitten/Life()
+	..()
+	if(!stat)
+		amount_grown += rand(1,2)
+		if(amount_grown >= 100)
+			new /mob/living/simple_animal/cat(src.loc)
+			del(src)
+
+//End of kitten growing code\\

@@ -185,6 +185,12 @@
 	penetrating = 5
 	armor_penetration = 80
 	hitscan = 1 //so the PTR isn't useless as a sniper weapon
+	
+//7.92 mm rounds for IG Farben's guns -Baron von Kroner//
+
+/obj/item/projectile/bullet/rifle/a792
+	damage = 50
+	penetrating = 1
 
 /* Miscellaneous */
 

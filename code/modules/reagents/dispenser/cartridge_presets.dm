@@ -91,3 +91,8 @@
 	chloral		spawn_reagent = "chloralhydrate"
 	cryoxadone	spawn_reagent = "cryoxadone"
 	clonexadone	spawn_reagent = "clonexadone"
+
+	//SoapStation
+	water/hot	spawn_reagent = "hot water"
+	milk		spawn_reagent = "milk"
+	hot_coco	spawn_reagent = "hot_coco"

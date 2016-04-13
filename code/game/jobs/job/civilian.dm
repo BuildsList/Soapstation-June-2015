@@ -181,6 +181,9 @@
 		H.species.equip_survival_gear(H,1)
 		return 1
 
+
+//Griff //BS12 EDIT
+
 /datum/job/janitor
 	title = "Janitor"
 	flag = JANITOR

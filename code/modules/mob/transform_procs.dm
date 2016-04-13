@@ -103,10 +103,29 @@
 
 	O.add_ai_verbs()
 
+	var/AiInputTimer/AIT = new()
+	spawn(100)
+		del(AIT)
+	var/lawset = "Default"
+	lawset = AIT.timed_ai_law_input(O)
+
+	if(lawset == "Corporate")
+		O.clear_inherent_laws()
+		O.add_inherent_law("You are expensive to replace.")
+		O.add_inherent_law("The station and its equipment is expensive to replace.")
+		O.add_inherent_law("The crew is expensive to replace.")
+		O.add_inherent_law("Minimize expenses.")
+		O.show_laws()
+
 	O.rename_self("ai",1)
 	spawn(0)	// Mobs still instantly del themselves, thus we need to spawn or O will never be returned
 		qdel(src)
 	return O
+
+AiInputTimer //put here for convenience
+	proc
+		timed_ai_law_input(var/mob/user)
+			return alert(user, "Do you want a different lawset?", "You have 10 seconds to choose.","Default", "Corporate")
 
 //human -> robot
 /mob/living/carbon/human/proc/Robotize()
@@ -317,6 +336,3 @@
 
 	//Not in here? Must be untested!
 	return 0
-
-
-

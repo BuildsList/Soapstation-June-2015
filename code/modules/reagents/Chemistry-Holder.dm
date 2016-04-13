@@ -265,6 +265,8 @@
 	var/part = amount / total_volume
 
 	for(var/datum/reagent/current in reagent_list)
+		if(!current.on_transfer(current.volume * part))
+			continue
 		var/amount_to_transfer = current.volume * part
 		target.add_reagent(current.id, amount_to_transfer * multiplier, current.get_data(), safety = 1) // We don't react until everything is in place
 		if(!copy)
@@ -282,6 +284,9 @@
 //If for some reason touch effects are bypassed (e.g. injecting stuff directly into a reagent container or person),
 //call the appropriate trans_to_*() proc.
 /datum/reagents/proc/trans_to(var/atom/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
+	for(var/datum/reagent/current in reagent_list)
+		if(current.on_transfer(current.volume * (amount / src.total_volume)))
+			return 0
 	touch(target) //First, handle mere touch effects
 
 	if(ismob(target))

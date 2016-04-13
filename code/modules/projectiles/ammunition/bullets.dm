@@ -151,6 +151,11 @@
 	desc = "A 5.56mm practice bullet casing."
 	caliber = "a556"
 	projectile_type = /obj/item/projectile/bullet/rifle/a556/practice
+	
+/obj/item/ammo_casing/a792
+	desc = "A 7.92mm bullet casing."
+	caliber = "a792"
+	projectile_type = /obj/item/projectile/bullet/rifle/a792
 
 /obj/item/ammo_casing/rocket
 	name = "rocket shell"

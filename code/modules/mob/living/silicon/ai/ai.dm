@@ -315,11 +315,61 @@ var/list/ai_verbs_default = list(
 	set name = "Set AI Core Display"
 	if(stat || aiRestorePowerRoutine)
 		return
+	if(!custom_sprite) //Check to see if custom sprite time, checking the appopriate file to change a var
+		var/file = file2text("config/custom_sprites.txt")
+		var/lines = text2list(file, "\n")
 
-	if (!custom_sprite)
-		var/new_sprite = input("Select an icon!", "AI", selected_sprite) as null|anything in ai_icons
-		if(new_sprite) selected_sprite = new_sprite
-	updateicon()
+		for(var/line in lines)
+		// split & clean up
+			var/list/Entry = text2list(line, ":")
+			for(var/i = 1 to Entry.len)
+				Entry[i] = trim(Entry[i])
+
+			if(Entry.len < 2)
+				continue;
+
+			if(Entry[1] == src.ckey && Entry[2] == src.real_name)
+				custom_sprite = 1 //They're in the list? Custom sprite time
+				icon = CUSTOM_ITEM_ROBOT
+
+		//if(icon_state == initial(icon_state))
+	var/icontype = ""
+	if (custom_sprite == 1) icontype = ("Custom")//automagically selects custom sprite if one is available
+	else icontype = input("Select an icon!", "AI", null, null) in list("Monochrome", "Rainbow", "Blue", "Inverted", "Text", "Smiley", "Angry", "Dorf", "Matrix", "Bliss", "Firewall", "Green", "Red", "Static", "Triumvirate", "Triumvirate Static", "Soviet", "Trapped", "Heartline", "Chatterbox", "Helios", "Dug Too Deep", "Goon", "Database", "Glitchman", "Lonestar", "Nanotrasen", "Neerti", "Danny", "Atlantiscze", "Oldfashioned",)
+	switch(icontype)
+		if("Custom") icon_state = "[src.ckey]-ai"
+		if("Rainbow") icon_state = "ai-clown"
+		if("Monochrome") icon_state = "ai-mono"
+		if("Inverted") icon_state = "ai-u"
+		if("Firewall") icon_state = "ai-magma"
+		if("Green") icon_state = "ai-wierd"
+		if("Red") icon_state = "ai-red"
+		if("Static") icon_state = "ai-static"
+		if("Text") icon_state = "ai-text"
+		if("Smiley") icon_state = "ai-smiley"
+		if("Matrix") icon_state = "ai-matrix"
+		if("Angry") icon_state = "ai-angryface"
+		if("Dorf") icon_state = "ai-dorf"
+		if("Bliss") icon_state = "ai-bliss"
+		if("Triumvirate") icon_state = "ai-triumvirate"
+		if("Triumvirate Static") icon_state = "ai-triumvirate-malf"
+		if("Soviet") icon_state = "ai-redoctober"
+		if("Trapped") icon_state = "ai-hades"
+		if("Heartline") icon_state = "ai-heartline"
+		if("Chatterbox") icon_state = "ai-president"
+		if("Oldfashioned") icon_state = "ai-house"
+		if("Danny") icon_state = "danny220-ai"
+		if("Atlantiscze") icon_state = "atlantiscze-ai"
+		if("Neerti") icon_state = "neerti-ai"
+		if("Helios") icon_state = "ai-helios"
+		if("Dug Too Deep") icon_state = "ai-toodeep"
+		if("Goon") icon_state = "ai-goon"
+		if("Database") icon_state = "ai-database"
+		if("Glitchman") icon_state = "ai-glitchman"
+		if("Lonestar") icon_state = "ai-lonestar"
+		if("Nanotrasen") icon_state = "ai-nanotrasen"
+		else icon_state = "ai"
+
 
 // this verb lets the ai see the stations manifest
 /mob/living/silicon/ai/proc/ai_roster()
@@ -569,7 +619,16 @@ var/list/ai_verbs_default = list(
 		var/icon_list[] = list(
 		"default",
 		"floating face",
-		"carp"
+		"carp",
+		"auto",
+		"young-1",
+		"young-2",
+		"young-3",
+		"orb",
+		"hooded",
+		"wings",
+		"male",
+		"green-face",
 		)
 		input = input("Please select a hologram:") as null|anything in icon_list
 		if(input)
@@ -581,6 +640,24 @@ var/list/ai_verbs_default = list(
 					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo2"))
 				if("carp")
 					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo4"))
+				if("auto")
+					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo6"))
+				if("young-1")
+					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo8"))
+				if("young-2")
+					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo9"))
+				if("young-3")
+					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo10"))
+				if("orb")
+					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo5"))
+				if("hooded")
+					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo12"))
+				if("wings")
+					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo7"))
+				if("male")
+					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo3"))
+				if("green-face")
+					holo_icon = getHologramIcon(icon('icons/mob/AI.dmi',"holo11"))
 	return
 
 //Toggles the luminosity and applies it by re-entereing the camera.

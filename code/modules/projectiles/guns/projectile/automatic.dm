@@ -226,3 +226,17 @@
 		user << "<span class='warning'>You need to open the cover to unload [src].</span>"
 		return
 	..()
+
+
+/obj/item/weapon/gun/projectile/automatic/mp40
+	name = "\improper MP-40"
+	desc = "A modernized, improved version of the Maschinenpistole 40. It has found itself as a capable submachine gun in the hands of the Corporate Alliance. Uses 9mm Parabellum rounds."
+	icon_state = "MP-40"
+	item_state = "arifle"
+	w_class = 3
+	load_method = MAGAZINE
+	caliber = "9mm"
+	origin_tech = "combat=6;materials=4;syndicate=8"
+	ammo_type = "/obj/item/ammo_casing/c9mm"
+	fire_sound = 'sound/weapons/Gunshot_light.ogg'
+	magazine_type = /obj/item/ammo_magazine/mp9mm

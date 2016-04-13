@@ -1245,28 +1245,51 @@
 		src.owner << "(<a href='?src=\ref[usr];priv_msg=\ref[M]'>PM</a>) (<A HREF='?src=\ref[src];adminplayeropts=\ref[M]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[M]'>VV</A>) (<A HREF='?src=\ref[src];subtlemessage=\ref[M]'>SM</A>) ([admin_jump_link(M, src)]) (<A HREF='?src=\ref[src];secretsadmin=check_antagonist'>CA</A>)"
 
 	else if(href_list["adminspawncookie"])
-		if(!check_rights(R_ADMIN|R_FUN))	return
+		if(!check_rights(R_ADMIN|R_FUN))
+			usr << "\red You require +ADMIN or +FUN to use this command"
+			return
 
 		var/mob/living/carbon/human/H = locate(href_list["adminspawncookie"])
 		if(!ishuman(H))
 			usr << "This can only be used on instances of type /mob/living/carbon/human"
 			return
 
-		H.equip_to_slot_or_del( new /obj/item/weapon/reagent_containers/food/snacks/cookie(H), slot_l_hand )
-		if(!(istype(H.l_hand,/obj/item/weapon/reagent_containers/food/snacks/cookie)))
-			H.equip_to_slot_or_del( new /obj/item/weapon/reagent_containers/food/snacks/cookie(H), slot_r_hand )
-			if(!(istype(H.r_hand,/obj/item/weapon/reagent_containers/food/snacks/cookie)))
-				log_admin("[key_name(H)] has their hands full, so they did not receive their cookie, spawned by [key_name(src.owner)].")
-				message_admins("[key_name(H)] has their hands full, so they did not receive their cookie, spawned by [key_name(src.owner)].")
-				return
-			else
-				H.update_inv_r_hand()//To ensure the icon appears in the HUD
+		if(!H.l_hand)
+			H.equip_to_slot_or_del(new/obj/item/weapon/reagent_containers/food/snacks/cookie(H), slot_l_hand)
 		else
-			H.update_inv_l_hand()
+			if(!H.r_hand)
+				H.equip_to_slot_or_del(new/obj/item/weapon/reagent_containers/food/snacks/cookie(H), slot_r_hand )
+			else
+				var/obj/item/weapon/reagent_containers/food/snacks/cookie = new/obj/item/weapon/reagent_containers/food/snacks/cookie(H)
+				cookie.loc = H.loc
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
 		log_admin("[key_name(H)] got their cookie, spawned by [key_name(src.owner)]")
 		message_admins("[key_name(H)] got their cookie, spawned by [key_name(src.owner)]")
 		feedback_inc("admin_cookies_spawned",1)
 		H << "\blue Your prayers have been answered!! You received the <b>best cookie</b>!"
+
+	else if(href_list["admin4noraisin"])
+		if(!check_rights(R_ADMIN|R_FUN))
+			usr << "\red You require +ADMIN or +FUN to use this command"
+			return
+		var/mob/living/carbon/human/H = locate(href_list["admin4noraisin"])
+		if(!ishuman(H))
+			usr << "This can only be used on instances of type /mob/living/carbon/human"
+			return
+		if(!H.l_hand)
+			H.equip_to_slot_or_del(new/obj/item/weapon/reagent_containers/food/snacks/no_raisin(H), slot_l_hand)
+		else
+			if(!H.r_hand)
+				H.equip_to_slot_or_del(new/obj/item/weapon/reagent_containers/food/snacks/no_raisin(H), slot_r_hand )
+			else
+				var/obj/item/weapon/reagent_containers/food/snacks/no = new/obj/item/weapon/reagent_containers/food/snacks/no_raisin(H)
+				no.loc = H.loc
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+		log_admin("[key_name(H)] received 4noraisins from [key_name(src.owner)]")
+		message_admins("[key_name(H)] received 4noraisins from [key_name(src.owner)]")
+		H << "\red Admins have given you 4noraisins for no reason"
 
 	else if(href_list["BlueSpaceArtillery"])
 		if(!check_rights(R_ADMIN|R_FUN))	return

@@ -100,6 +100,100 @@
 	else
 		src << "No matches for that age range found."
 
+/client/proc/scrub_toxins()
+	set category = "Admin"
+	set name = "Scrub Toxins"
+
+	var/list/modes = list("Main Station", "Centcomm", "Telecomms", "Derelict", "Mining/Research station", "Cancel")
+	var/toggle = input("Select a sector to scrub toxins:", "Sectors", modes[1]) in modes
+	var/mode = modes.Find(toggle)
+
+	if(mode == 6)
+		return
+	usr << "Atmospherics reset initiated"
+
+	for(var/turf/simulated/T in world)
+		if(T.z == mode)
+			if(!(T.x >= 76 && T.x <= 88 && T.y >= 91 && T.y <= 95)) //upper atmos gas storage
+				if(!(T.x >= 76 && T.x <= 94 && T.y >= 69 && T.y <= 73)) //lower atmos gas storage
+					if(!(T.x >= 112 && T.x <= 114 && T.y >= 60 && T.y <= 62)) //supermatter core
+						if(!((T.x == 185 || T.x == 186) && T.y >= 102 && T.y <= 104)) //toxin mixing
+							if(!(T.x >= 166 && T.x <= 169 && T.y >= 111 && T.y <= 113)) //server room
+								if(!(T.x == 166 && T.y == 108)) //phorochemistry
+									if(T.air)
+										if(T.air.gas["carbon_dioxide"])
+											T.air.gas["carbon_dioxide"] = 0
+										if(T.air.gas["phoron"])
+											T.air.gas["phoron"] = 0
+										if(T.air.gas["oxygen"])
+											T.air.gas["oxygen"] = 21.8
+										if(T.air.gas["nitrogen"])
+											T.air.gas["nitrogen"] = 81.01
+										if(T.air.gas["sleeping_agent"])
+											T.air.gas["sleeping_agent"] = 0
+										if(T.air.gas["volatile_fuel"])
+											T.air.gas["volatile_fuel"] = 0
+
+										T.air.temperature = 293.15
+										T.air.update_values()
+
+									if(T.zone)
+										if(T.zone.air)
+											if(T.zone.air.gas["carbon_dioxide"])
+												T.zone.air.gas["carbon_dioxide"] = 0
+											if(T.zone.air.gas["phoron"])
+												T.zone.air.gas["phoron"] = 0
+											if(T.zone.air.gas["oxygen"])
+												T.zone.air.gas["oxygen"] = 21.8
+											if(T.zone.air.gas["nitrogen"])
+												T.zone.air.gas["nitrogen"] = 81.01
+											if(T.zone.air.gas["sleeping_agent"])
+												T.zone.air.gas["sleeping_agent"] = 0
+											if(T.zone.air.gas["volatile_fuel"])
+												T.zone.air.gas["volatile_fuel"] = 0
+											T.zone.air.temperature = 293.15
+											T.zone.air.update_values()
+
+	message_admins("[key_name_admin(usr)] has initiated atmos reset on the [toggle]", 0, 1)
+
+/client/proc/toggle_explosions()
+	set category = "Admin"
+	set name = "Toggle Explosions"
+
+	var/list/modes = list("Tank Transfer Valves", "Fueltanks", "Chemical Grenades", "Cancel")
+	var/toggle = input("Select an explosive to toggle:", "Explosives", modes[1]) in modes
+	var/mode = modes.Find(toggle) - 1
+
+	switch(mode)
+		if(0)
+			transfer_can_explode = !transfer_can_explode
+
+			if(transfer_can_explode)
+				usr << "Tank transfer valve explosions are now on"
+				message_admins("[key_name_admin(usr)] has toggled tank transfer valves on", 0, 1)
+			else
+				usr << "Tank transfer valve explosions are now off"
+				message_admins("[key_name_admin(usr)] has toggled tank transfer valves off", 0, 1)
+		if(1)
+			tanks_can_explode = !tanks_can_explode
+
+			if(tanks_can_explode)
+				usr << "Fueltank explosions are now on"
+				message_admins("[key_name_admin(usr)] has toggled tank fuel tank explosions on", 0, 1)
+			else
+				usr << "Fueltank explosions are now off"
+				message_admins("[key_name_admin(usr)] has toggled tank fuel tank explosions off", 0, 1)
+		if(2)
+			grenades_can_react = !grenades_can_react
+
+			if(grenades_can_react)
+				usr << "Chemistry grenade reactions are now on"
+				message_admins("[key_name_admin(usr)] has toggled chemistry grenade reactions on", 0, 1)
+			else
+				usr << "Chemistry grenade reactions are now off"
+				message_admins("[key_name_admin(usr)] has toggled chemistry grenade reactions off", 0, 1)
+		if(3)
+			return
 
 /client/proc/cmd_admin_world_narrate() // Allows administrators to fluff events a little easier -- TLE
 	set category = "Special Verbs"
@@ -254,7 +348,7 @@ Ccomp's first proc.
 
 
 /client/proc/allow_character_respawn()
-	set category = "Special Verbs"
+	set category = "Event Verbs"
 	set name = "Allow player to respawn"
 	set desc = "Let's the player bypass the 30 minute wait to respawn or allow them to re-enter their corpse."
 	if(!holder)
@@ -348,7 +442,7 @@ Works kind of like entering the game with a new character. Character receives a 
 Traitors and the like can also be revived with the previous role mostly intact.
 /N */
 /client/proc/respawn_character()
-	set category = "Special Verbs"
+	set category = "Event Verbs"
 	set name = "Respawn Character"
 	set desc = "Respawn a person that has been gibbed/dusted/killed. They must be a ghost for this to work and preferably should not have a body to go back into."
 	if(!holder)
@@ -817,8 +911,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	return
 
 /client/proc/admin_deny_shuttle()
-	set category = "Admin"
-	set name = "Toggle Deny Shuttle"
+	set category = "Event Verbs"
+	set name = "Toggle Deny Shuttle (UNTESTED)"
 
 	if (!ticker)
 		return

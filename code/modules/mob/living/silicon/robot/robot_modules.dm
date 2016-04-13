@@ -169,7 +169,15 @@ var/global/list/robot_modules = list(
 					"Android" = "droid",
 					"Default" = "robot",
 					"Drone" = "drone-standard",
-					"Eyebot" = "eyebot-standard"
+					"Eyebot" = "eyebot-standard",
+					"Atlantiscze" = "atlantiscze-Standard",
+					"Pandersenic" = "pandarsenic-Standard",
+					"donofnyc3" = "donofnyc3-Standard",
+					"Nullsnapshot" = "nullsnapshot-Standard",
+					"Mechoid" = "mechoid-Standard",
+					"Matthew951" = "matthew951-standard",
+					"Tableturning" = "tableturning-Standard",
+					"Renscorch" = "renscorch-Standard"
 				  )
 
 /obj/item/weapon/robot_module/standard/New()
@@ -197,7 +205,15 @@ var/global/list/robot_modules = list(
 					"Advanced Droid" = "droid-medical",
 					"Needles" = "medicalrobot",
 					"Drone" = "drone-surgery",
-					"Eyebot" = "eyebot-medical"
+					"Eyebot" = "eyebot-medical",
+					"Atlantiscze" = "atlantiscze-Surgeon",
+					"Pandersenic" = "pandarsenic-Medical",
+					"donofnyc3" = "donofnyc3-Surgeon",
+					"Nullsnapshot" = "nullsnapshot-Surgeon",
+					"Mechoid" = "mechoid-Surgeon",
+					"Matthew951" = "matthew951-surgeon",
+					"Tableturning" = "tableturning-Surgeon",
+					"Renscorch" = "renscorch-Surgeon"
 					)
 
 /obj/item/weapon/robot_module/medical/surgeon/New()
@@ -249,7 +265,15 @@ var/global/list/robot_modules = list(
 					"Needles" = "medicalrobot",
 					"Drone - Medical" = "drone-medical",
 					"Drone - Chemistry" = "drone-chemistry",
-					"Eyebot" = "eyebot-medical"
+					"Eyebot" = "eyebot-medical",
+					"Atlantiscze" = "atlantiscze-Crisis",
+					"Pandersenic" = "pandarsenic-Crisis",
+					"donofnyc3" = "donofnyc3-Crisis",
+					"Nullsnapshot" = "nullsnapshot-Crisis",
+					"Mechoid" = "mechoid-Crisis",
+					"Matthew951" = "matthew951-crisis",
+					"Tableturning" = "tableturning-Crisis",
+					"Renscorch" = "renscorch-Crisis"
 					)
 
 /obj/item/weapon/robot_module/medical/crisis/New()
@@ -316,7 +340,16 @@ var/global/list/robot_modules = list(
 					"Landmate" = "landmate",
 					"Landmate - Treaded" = "engiborg+tread",
 					"Drone" = "drone-engineer",
-					"Eyebot" = "eyebot-engineering"
+					"Eyebot" = "eyebot-engineering",
+					"Atlantiscze" = "atlantiscze-Engineering",
+					"Pandersenic" = "pandarsenic-Engineering",
+					"donofnyc3" = "donofnyc3-Engineering",
+					"Nullsnapshot" = "nullsnapshot-Engineering",
+					"Mechoid" = "mechoid-Engineering",
+					"Matthew951" = "matthew951-engineering",
+					"Tableturning" = "tableturning-Engineering",
+					"Renscorch" = "renscorch-Engineering",
+					"R2D2" = "r2d2",
 					)
 
 /obj/item/weapon/robot_module/engineering/general/New()
@@ -399,7 +432,20 @@ var/global/list/robot_modules = list(
 					"Bloodhound" = "bloodhound",
 					"Bloodhound - Treaded" = "secborg+tread",
 					"Drone" = "drone-sec",
-					"Eyebot" = "eyebot-security"
+					"Eyebot" = "eyebot-security",
+					"Atlantiscze" = "atlantiscze-Security",
+					"Pandersenic" = "pandarsenic-Security",
+					"donofnyc3" = "donofnyc3-Security",
+					"Nullsnapshot" = "nullsnapshot-Combat",
+					"Mechoid" = "mechoid-Security",
+					"Matthew951" = "matthew951-security",
+					"Tableturning" = "tableturning-Security",
+					"Renscorch" = "renscorch-Security",
+					"Securitron" = "securitron",
+					"Mr. Gutsy" = "mrgutsy",
+					"Droideka" = "papadrow-Combat",
+					"Eve" = "Eve"
+
 				)
 
 /obj/item/weapon/robot_module/security/general/New()
@@ -432,7 +478,17 @@ var/global/list/robot_modules = list(
 					"Mopbot"  = "janitorrobot",
 					"Mop Gear Rex" = "mopgearrex",
 					"Drone" = "drone-janitor",
-					"Eyebot" = "eyebot-janitor"
+					"Eyebot" = "eyebot-janitor",
+					"Atlantiscze" = "atlantiscze-Janitor",
+					"Pandersenic" = "pandarsenic-Janitor",
+					"donofnyc3" = "donofnyc3-Janitor",
+					"Nullsnapshot" = "nullsnapshot-Janitor",
+					"Mechoid" = "mechoid-Janitor",
+					"Matthew951" = "matthew951-janitor",
+					"Tableturning" = "tableturning-Janitor",
+					"Renscorch" = "renscorch-Janitor",
+					"Wall-e" = "wall-e",
+					"Wall-a" = "wall-a"
 					)
 
 /obj/item/weapon/robot_module/janitor/New()
@@ -477,7 +533,15 @@ var/global/list/robot_modules = list(
 					"Default" = "Service2",
 					"Drone - Service" = "drone-service",
 					"Drone - Hydro" = "drone-hydro",
-					"Eyebot" = "eyebot-standard"
+					"Eyebot" = "eyebot-standard",
+					"Atlantiscze" = "atlantiscze-Clerical",
+					"Pandersenic" = "pandarsenic-Clerical",
+					"donofnyc3" = "donofnyc3-Clerical",
+					"Nullsnapshot" = "nullsnapshot-Clerical",
+					"Mechoid" = "mechoid-Clerical",
+					"Matthew951" = "matthew951-clerical",
+					"Tableturning" = "tableturning-Clerical",
+					"Renscorch" = "renscorch-Clerical"
 				  	)
 
 /obj/item/weapon/robot_module/clerical/butler/New()
@@ -520,7 +584,15 @@ var/global/list/robot_modules = list(
 					"Rich" = "maximillion",
 					"Default" = "Service2",
 					"Drone" = "drone-service",
-					"Eyebot" = "eyebot-standard"
+					"Eyebot" = "eyebot-standard",
+					"Atlantiscze" = "atlantiscze-Service",
+					"Pandersenic" = "pandarsenic-Service",
+					"donofnyc3" = "donofnyc3-Service",
+					"Nullsnapshot" = "nullsnapshot-Service",
+					"Mechoid" = "mechoid-Service",
+					"Matthew951" = "matthew951-service",
+					"Tableturning" = "tableturning-Service",
+					"Renscorch" = "renscorch-Service"
 					)
 
 /obj/item/weapon/robot_module/clerical/general/New()
@@ -549,7 +621,15 @@ var/global/list/robot_modules = list(
 					"Advanced Droid" = "droid-miner",
 					"Treadhead" = "Miner",
 					"Drone" = "drone-miner",
-					"Eyebot" = "eyebot-miner"
+					"Eyebot" = "eyebot-miner",
+					"Atlantiscze" = "atlantiscze-Miner",
+					"Pandersenic" = "pandarsenic-Miner",
+					"donofnyc3" = "donofnyc3-Miner",
+					"Nullsnapshot" = "nullsnapshot-Miner",
+					"Mechoid" = "mechoid-Miner",
+					"Matthew951" = "matthew951-miner",
+					"Tableturning" = "tableturning-Miner",
+					"Renscorch" = "renscorch-Miner"
 				)
 	supported_upgrades = list(/obj/item/borg/upgrade/jetpack)
 
@@ -640,7 +720,11 @@ var/global/list/robot_modules = list(
 
 /obj/item/weapon/robot_module/security/combat
 	name = "combat robot module"
-	sprites = list("Combat Android" = "droid-combat")
+	sprites = list(
+	"Combat Android" = "droid-combat",
+	"Mr. Gutsy" = "mrgutsy",
+	"Mechoid" = "mechoid-Combat"
+	)
 
 /obj/item/weapon/robot_module/combat/New()
 	src.modules += new /obj/item/device/flash(src)

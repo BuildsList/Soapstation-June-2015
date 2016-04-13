@@ -53,7 +53,7 @@
 		new /obj/item/device/radio/headset/heads/hop(src)
 		new /obj/item/weapon/storage/box/ids(src)
 		new /obj/item/weapon/storage/box/ids( src )
-		new /obj/item/weapon/gun/projectile/sec/flash(src)
+		new /obj/item/weapon/gun/projectile/sec/hop(src)
 		new /obj/item/device/flash(src)
 		return
 

@@ -979,3 +979,24 @@
 	desc = "A container that dispenses containers."
 	icon_state = "robotics"
 	products = list(/obj/structure/closet/crate/freezer = 2, /obj/structure/closet = 3, /obj/structure/closet/crate = 3)
+
+//Clothes Vending Machine
+//don't forget to change the refill size if you change the machine's contents!
+/obj/machinery/vending/clothes
+	name = "Clothes to Goes" //Made by Cpm311, Idea by Nicolodosh
+	desc = "A vending machine for clothing."
+	icon_state = "clothes"
+	product_slogans = "You choose your clothes for your day!;Don't Go without new Clothes to Go!;Why wait for others when your clothes are here?"
+	vend_delay = 15
+	vend_reply = "Thank you for using the Clothes to Goes!"
+	products = list(/obj/item/clothing/under/syndicate/tacticool=3,/obj/item/clothing/mask/fakemoustache=1,/obj/item/clothing/head/fedora=4,/obj/item/clothing/head/rabbitears=2,/obj/item/clothing/glasses/eyepatch=2,
+					/obj/item/clothing/head/that=2,/obj/item/clothing/head/hairflower=2,/obj/item/clothing/head/chefhat=2,/obj/item/clothing/head/kitty=4,/obj/item/clothing/glasses/monocle=2,/obj/item/clothing/glasses/threedglasses=2,
+					/obj/item/clothing/glasses/gglasses=2,/obj/item/clothing/glasses/sunglasses=2,/obj/item/clothing/glasses/sunglasses/blindfold=1,/obj/item/clothing/gloves/white=2,/obj/item/clothing/gloves/black=10,/obj/item/clothing/head/beret=10,
+					/obj/item/clothing/head/chefhat=5,/obj/item/clothing/head/powdered_wig=10,/obj/item/clothing/head/that=10,/obj/item/clothing/head/rabbitears=5,/obj/item/clothing/head/fedora=10,/obj/item/clothing/head/fez=10,/obj/item/clothing/head/bearpelt=2,
+					/obj/item/clothing/shoes/black=10,/obj/item/clothing/shoes/brown=10,/obj/item/clothing/shoes/sandal=10,/obj/item/clothing/shoes/slippers=10,
+					/obj/item/clothing/suit/pirate=10,/obj/item/clothing/suit/hgpirate=1,/obj/item/clothing/suit/storage/toggle/hoodie=10,
+					/obj/item/clothing/suit/storage/toggle/hoodie/black=10,/obj/item/clothing/under/lawyer/black=10,/obj/item/clothing/under/gentlesuit=10,/obj/item/clothing/under/suit_jacket=10,/obj/item/clothing/under/suit_jacket/really_black=1,
+					/obj/item/clothing/under/schoolgirl=10,/obj/item/clothing/under/overalls=10,/obj/item/clothing/under/pirate=10,/obj/item/clothing/under/soapstation/warden_skirt=10,/obj/item/clothing/under/soapstation/warden_skirt=10,/obj/item/clothing/under/soapstation/science_skirt=10,
+					/obj/item/clothing/under/soapstation/janitor_skirt=10,/obj/item/clothing/under/soapstation/hos_skirt=10,/obj/item/clothing/under/soapstation/engineer_skirt=10,/obj/item/clothing/under/soapstation/cargotech_skirt=10,/obj/item/clothing/under/soapstation/atmos_skirt=10)
+	contraband = list(/obj/item/clothing/under/syndicate/combat=2,/obj/item/clothing/head/ushanka=2,/obj/item/clothing/head/plaguedoctorhat=2)
+	premium = list(/obj/item/clothing/mask/horsehead=2,/obj/item/clothing/mask/balaclava=1,/obj/item/clothing/mask/balaclava/tactical=1,/obj/item/clothing/under/psyche=1)

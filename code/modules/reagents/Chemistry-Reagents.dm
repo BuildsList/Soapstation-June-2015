@@ -1,4 +1,3 @@
-
 //Chemical Reagents - Initialises all /datum/reagent into a list indexed by reagent id
 /proc/initialize_chemical_reagents()
 	var/paths = typesof(/datum/reagent) - /datum/reagent
@@ -104,6 +103,18 @@
 /datum/reagent/Destroy() // This should only be called by the holder, so it's already handled clearing its references
 	..()
 	holder = null
+
+// Called when reagents are removed from a container, most likely after metabolizing in a mob
+/datum/reagent/proc/on_remove(var/atom/A)
+	return
+
+// Called when a mob dies
+/datum/reagent/proc/on_mob_death(var/mob/M)
+ 	return
+
+ //on transfer to new container, return 1 to allow it to continue
+/datum/reagent/proc/on_transfer(var/volume)
+	return 1
 
 /* DEPRECATED - TODO: REMOVE EVERYWHERE */
 

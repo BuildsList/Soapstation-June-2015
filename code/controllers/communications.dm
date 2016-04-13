@@ -273,6 +273,20 @@ var/global/datum/controller/radio/radio_controller
 		for (var/next_filter in devices)
 			send_to_filter(source, signal, next_filter, start_point, range)
 
+			//Phorochem edit
+ 		if(signal.frequency == induromol_frequency && signal.encryption == induromol_code)
+ 			for(var/mob/living/carbon/human/H in world)
+ 				for(var/datum/reagent/R in H.reagents.reagent_list)
+ 					if(R.id == "induromol")
+ 						H << "\red <font size=3><b>Your veins begin to pulsate as you feel something solidify inside them!</b></font>"
+ 						R.reagent_state = 1 //SOLID
+
+ 			for(var/obj/item/weapon/reagent_containers/container in world)
+ 				for(var/datum/reagent/R in container.reagents.reagent_list)
+ 					if(R.id == "induromol")
+ 						container.reagents.clear_reagents()
+ 						new /obj/item/weapon/induromol(container.loc)
+
 //Sends a signal to all machines belonging to a given filter. Should be called by post_signal()
 /datum/radio_frequency/proc/send_to_filter(obj/source, datum/signal/signal, var/filter, var/turf/start_point = null, var/range = null)
 	if (range && !start_point)

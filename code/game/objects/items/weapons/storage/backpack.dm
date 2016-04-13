@@ -53,6 +53,7 @@
 	icon_state = "holdingpack"
 	max_w_class = 4
 	max_storage_space = 56
+	var/mob/user = null
 	storage_cost = 29
 
 	New()
@@ -60,9 +61,40 @@
 		return
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if(istype(W, /obj/item/weapon/storage/backpack/holding))
-			user << "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>"
-			qdel(W)
+		if(crit_fail)
+			user << "\red The Bluespace generator isn't working."
+			return
+		/*if(istype(W, /obj/item/weapon/storage/backpack/holding) && !W.crit_fail)
+			user << "\red The Bluespace interfaces of the two devices conflict and malfunction."
+			del(W)
+			return*/
+			 //BoH+BoH=Singularity, commented out.
+		if(istype(W, /obj/item/weapon/storage/backpack/holding) && !W.crit_fail)
+			investigate_log("has become a singularity. Caused by [user.key]","singulo")
+			user << "\red The Bluespace interfaces of the two devices catastrophically malfunction!"
+			for(var/mob/M in viewers(usr, null))
+				M << "<font size='20' color='red'><b>ALL HAIL LORD SINGULO!</b></font>"
+			del(W)
+			var/obj/singularity/singulo = new /obj/singularity(get_turf(src), 200, 30) //3 second delay
+			singulo.energy = 200 //so it stops warning me about not using it...
+			message_admins("[key_name_admin(user)] detonated a bag of holding")
+			log_game("[key_name(user)] detonated a bag of holding")
+			user.gib() //SUMMONING OUR LORD SINGULO REQUIRES A SACRIFICE
+			del(src)
+			return
+
+		if(istype(W, /obj/item/weapon/grab))
+			var/obj/item/weapon/grab/grab = W
+			if(istype(grab.affecting, /mob/living/carbon/human) && istype(grab.assailant, /mob/living/carbon/human))
+				if(grab.affecting.buckled)
+					grab.affecting.buckled.unbuckle_mob()
+				shoveIntoBag(grab.affecting, grab.assailant)
+				grab.dropped()
+			else
+				if(!istype(grab.affecting, /mob/living/carbon/human))
+					usr << "\red The bag of holding refuses to accept a simplistic lifeform such as this"
+				if(!istype(grab.assailant, /mob/living/carbon/human))
+					usr << "\red You fail to interface with the controls of the bag of holding"
 			return
 		..()
 
@@ -71,6 +103,187 @@
 		if(istype(W, /obj/item/weapon/storage/backpack/holding))
 			return 1
 		return ..()
+
+	MouseDrop_T(var/atom/movable/C, mob/user)
+		if(istype(C, /mob/living/carbon/human) && istype(user, /mob/living/carbon/human))
+			if(user.buckled)
+				user.buckled.unbuckle_mob()
+			shoveIntoBag(C, user)
+		else
+			if(!istype(C, /mob/living/carbon/human) && istype(C, /mob))
+				user << "\red The bag of holding refuses to accept a simplistic lifeform such as this"
+			else
+				if(istype(C, /obj/item/weapon))
+					attackby(C, user)
+				else
+					user << "\red You feel as if that probably does not belong in a bag of holding"
+			if(!istype(user, /mob/living/carbon/human))
+				user << "\red You fail to inteface with the controls of the bag of holding"
+
+		return
+
+	proc/shoveIntoBag(var/mob/living/carbon/human/H, var/mob/living/carbon/human/user)
+
+		var/num_crew_stored = 0
+		for(var/turf/simulated/floor/bluespace/b in world)
+			for(var/mob/m in b.contents)
+				num_crew_stored++
+
+		if(num_crew_stored == 10)
+			num_crew_stored = 0
+			for(var/turf/simulated/floor/bluespace/b in world)
+				for(var/mob/m in b.contents)
+					m.gib()
+				for(var/obj/o in b.contents)
+					if(istype(o, /obj/item/organ))
+						del(o)
+
+		if(num_crew_stored >= 8)
+			user << "\red The bluespace doesn't seem to accept any more objects of this type at this time"
+			return
+
+		var/obj/item/crew_item/crew = new/obj/item/crew_item
+
+		if(!can_be_inserted(crew))
+			return
+
+		if(src.contents.len == 7)
+			user << "\blue The bag of holding is full, make some space."
+			return
+
+		var/start_one = user.loc
+		var/start_two = H.loc
+
+		if(user == H)
+			user << "\blue You begin putting yourself into the bag of holding"
+		else
+			user << "\blue You begin putting [H.name] inside the bag of holding"
+			H << "\red [user.name] is trying to put you inside a bag of holding!"
+
+		sleep(20) //two seconds
+		if(start_one == user.loc && start_two == H.loc)
+
+			crew.contained = H
+			crew.holding = src
+			crew.name += H.name
+			if(H.stat == DEAD)
+				crew.name += "-DEAD"
+			crew_items.Add(crew)
+
+			if(user == H)
+				H << "\red You crawl inside the bag of holding, for some reason"
+				user.drop_from_inventory(src)
+			else
+				H << "\red You have been shoved into a bag of holding"
+
+			for(var/obj/object in H.get_contents())
+				if(istype(object, /obj/item/weapon/storage/backpack/holding))
+					var/obj/item/weapon/storage/backpack/holding/hold = object
+					H << "Your bag of holding shorts out"
+					for (var/obj/O in hold.contents) //it broke, delete what was in it
+						del(O)
+					hold.crit_fail = 1
+					hold.icon_state = "brokenpack"
+				else
+					if(istype(object, /obj/item/weapon/disk/nuclear))
+						H.drop_from_inventory(object)
+						H << "\red It appears your nuclear disk did not make the trip with you!"
+					else
+						if(istype(object, /obj/item/device/radio) || istype(object, /obj/item/device/pda))
+							H << "\red You check yourself and realize your [object.name] has been lost to the bluespace"
+							if(istype(object, /obj/item/device/radio/headset))
+								crew.radios.Add(object)
+								H.drop_from_inventory(object)
+								object.x = 1
+								object.y = 1
+								object.z = 2
+							else
+								if(istype(object, /obj/item/device/pda)) //what if they have more than one PDA?
+									crew.PDAs.Add(object)
+									H.drop_from_inventory(object)
+									object.x = 1
+									object.y = 1
+									object.z = 2
+								else
+									del(object)
+						else //10% chance //exclude IDs and backpacks from being taken so we're not being TOO dickish with it
+							if(rand(0,9) == 9 && (!istype(object, /obj/item/weapon/storage/backpack) && !istype(object, /obj/item/weapon/card/id) && !istype(object, /obj/item/weapon/implant)))
+								H << "\red You check yourself and realize your [object.name] has been lost to the bluespace"
+								del(object) //does not yet exclude implants, have to decide that
+
+			var/icon/human_icon = getFlatIcon(H, SOUTH) //I have no idea why this works
+														//I have no idea how this works
+														//Hell, I can't even find where they declare this proc
+			human_icon.Scale(33,28)
+			crew.icon = human_icon
+
+			var/mob_found = 0
+			for(var/turf/simulated/floor/bluespace/b in world)
+				for(var/mob/m in b.contents)
+					mob_found = 1
+				if(!mob_found)
+					H.x = b.x
+					H.y = b.y
+					H.z = b.z
+					if(crew.PDAs.len > 0)
+						for(var/obj/item/device/pda/PDA in PDAs)
+							if(PDA.id)
+								PDA.id.loc = H.loc
+								PDA.id = null
+					handle_item_insertion(crew)
+					for(var/mob/M in viewers(usr, null))
+						if(M != user)
+							if(H == user)
+								M.show_message("\blue [user.name] crawls into a bag of holding!")
+							else
+								M.show_message("\blue [user.name] shoves [H.name] into a bag of holding!")
+					message_admins("[key_name_admin(user)] has shoved [key_name_admin(H)] into a bag of holding", 0, 1)
+					break
+				mob_found = 0
+		else
+			if(user == H)
+				user << "\red You must stand still to put yourself in the bag"
+				return
+			else
+				user << "\red You and your target must remain still to put anyone in the bag"
+				H << "[user.name] fails to put you inside the bag of holding"
+				return
+
+			//CREW MUST BE ADDED TO BAG OR THEY DUN SPLODE
+
+		return
+
+/obj/item/weapon/storage/backpack/holding/verb/shakeBag()
+	set name = "Shake Bag"
+	set category = "Object"
+
+	var/was_escaping = 0
+	for(var/obj/O in src.contents)
+		var/obj/item/crew_item/crew = null
+		if(istype(O, /obj/item/crew_item))
+			crew = O
+			if(crew.escaping)
+				was_escaping = 1
+				crew.contained.Stun(8) //great time for stunning until a standing check is made
+				crew.contained.Weaken(1)
+				crew.contained << "\red <b>You feel a great rumbling, as if someone is shaking the bag</b>"
+				crew.escaping = 0
+	if(was_escaping)
+		src.contents = shuffle(contents)
+		usr << "\blue You visibly shake the bag, and the vibrations within momentarily cease"
+		for(var/mob/M in range(7, src.user))
+			if(src.user != M)
+				M << "[src.user] vigorously shakes their bag of holding"
+	else
+		usr << "\red You fail to see the need to shake up the bag at the current moment"
+
+/obj/item/weapon/storage/backpack/holding/dropped(mob/use as mob)
+	src.user = null //bag being taken off by other people handled by human inventory class
+	..()
+
+/obj/item/weapon/storage/backpack/holding/pickup(mob/use)
+	src.user = use
+	..()
 
 /obj/item/weapon/storage/backpack/santabag
 	name = "\improper Santa's gift bag"

@@ -5,7 +5,7 @@
 //BIG NOTE: Don't add living things to crates, that's bad, it will break the shuttle.
 //NEW NOTE: Do NOT set the price of any crates below 7 points. Doing so allows infinite points.
 
-var/list/all_supply_groups = list("Operations","Security","Hospitality","Engineering","Atmospherics","Medical","Reagents","Reagent Cartridges","Science","Hydroponics", "Supply", "Miscellaneous")
+var/list/all_supply_groups = list("Operations","Security","Hospitality","Engineering","Atmospherics","Medical","Reagents","Reagent Cartridges","Science","Hydroponics", "Supply", "Miscellaneous", "Pets")
 
 /datum/supply_packs
 	var/name = null
@@ -1539,3 +1539,85 @@ var/list/all_supply_groups = list("Operations","Security","Hospitality","Enginee
 		/obj/item/device/kit/paint/gygax/recitence
 		)
 	name = "Random Gygax exosuit modkit"
+
+//Soap Custom Pets
+
+/datum/supply_packs/kitten
+	name = "Kitten Crate"
+	contains = list()
+	cost = 20
+	containertype = /obj/structure/largecrate/kitten
+	containername = "Kitten Crate"
+	group = "Pets"
+
+/datum/supply_packs/bear
+	name = "Bear Crate"
+	contains = list()
+	cost = 20
+	containertype = /obj/structure/largecrate/bear
+	containername = "Bear Crate"
+	group = "Pets"
+
+/datum/supply_packs/carp
+	name = "Carp Crate"
+	contains = list()
+	cost = 20
+	containertype = /obj/structure/largecrate/carp
+	containername = "Carp Crate"
+	group = "Pets"
+
+/datum/supply_packs/parrot
+	name = "Parrot Crate"
+	contains = list()
+	cost = 20
+	containertype = /obj/structure/largecrate/parrot
+	containername = "Parrot Crate"
+	group = "Pets"
+
+/datum/supply_packs/penguin
+	name = "Penguin Crate"
+	contains = list()
+	cost = 20
+	containertype = /obj/structure/largecrate/penguin
+	containername = "Penguin Crate"
+	group = "Pets"
+
+/datum/supply_packs/fox
+	name = "Fox Crate"
+	contains = list()
+	cost = 20
+	containertype = /obj/structure/largecrate/fox
+	containername = "Fox Crate"
+	group = "Pets"
+
+/datum/supply_packs/seal
+	name = "Seal Crate"
+	contains = list()
+	cost = 20
+	containertype = /obj/structure/largecrate/seal
+	containername = "Seal Crate"
+	group = "Pets"
+
+/datum/supply_packs/walrus
+	name = "Walrus Crate"
+	contains = list()
+	cost = 20
+	containertype = /obj/structure/largecrate/walrus
+	containername = "Walrus Crate"
+	group = "Pets"
+
+/datum/supply_packs/goose
+	name = "Goose Crate"
+	contains = list()
+	cost = 20
+	containertype = /obj/structure/largecrate/goose
+	containername = "Goose Crate"
+	group = "Pets"
+
+/datum/supply_packs/renault
+	name = "Renault Crate"
+	contains = list()
+	cost = 20
+	containertype = /obj/structure/largecrate/renault
+	containername = "Renault Crate"
+	group = "Pets"

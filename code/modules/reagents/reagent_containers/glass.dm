@@ -42,7 +42,9 @@
 		/obj/machinery/smartfridge/,
 		/obj/machinery/biogenerator,
 		/obj/machinery/constructable_frame,
-		/obj/machinery/radiocarbon_spectrometer
+		/obj/machinery/radiocarbon_spectrometer,
+		/obj/machinery/phoroanalyzer,
+		/obj/machinery/telepad_phorochem
 		)
 
 	New()

@@ -143,6 +143,7 @@
 	icon_state = "kitty"
 	body_parts_covered = 0
 	siemens_coefficient = 1.5
+	slot_flags = SLOT_HEAD | SLOT_EARS
 	item_icons = list()
 
 	update_icon(var/mob/living/carbon/human/user)

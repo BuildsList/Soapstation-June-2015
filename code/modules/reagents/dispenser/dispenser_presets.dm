@@ -112,3 +112,47 @@
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/ale,
 			/obj/item/weapon/reagent_containers/chem_disp_cartridge/mead
 		)
+
+
+////////////////////////////HOT DRINKS DISPENSER\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+/obj/machinery/chemical_dispenser/hotdrinks
+	name = "Hot Drinks dispenser"
+	desc = "A drink fabricating machine, capable of producing many delicious hot beverages."
+	icon = 'icons/obj/coffee.dmi'
+	icon_state = "hot_dispenser"
+	ui_title = "Coffee Dispenser-o-matic"
+//	energy = 200
+//	max_energy = 200
+//	accept_glass = 1
+	accept_drinking = 1
+
+/obj/machinery/chemical_dispenser/hotdrinks/full
+	spawn_cartridges = list(
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/tea,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/hot_coco,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/milk,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/water/hot,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/cream,
+			/obj/item/weapon/reagent_containers/chem_disp_cartridge/sugar,
+		)
+
+//	dispensable_reagents = list("coffee","tea","hot_coco","milk","hot_water","cream","icetea","sugar")
+
+/*
+/obj/machinery/chem_dispenser/soda/attackby(var/obj/item/weapon/B as obj, var/mob/user as mob)
+	..()
+	if(istype(B, /obj/item/device/multitool))
+		if(hackedcheck == 0)
+			dispensable_reagents += list("fuel","rewriter")
+			hackedcheck = 1
+			return
+
+		else
+			dispensable_reagents -= list("fuel","rewriter")
+			hackedcheck = 0
+			return
+*/
+
+/////////////////////////END OF HOT DRINKS DISPENSER\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

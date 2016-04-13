@@ -155,3 +155,45 @@
 
 /obj/effect/landmark/mobcorpse/russian/ranged
 	corpsehelmet = /obj/item/clothing/head/ushanka
+	
+
+/obj/effect/landmark/mobcorpse/navytrooper
+	name = "Corporate Alliance Navy Trooper"
+	corpseuniform = /obj/item/clothing/under/soviet
+	corpseshoes = /obj/item/clothing/shoes/jackboots
+	corpsehelmet = /obj/item/clothing/head/bearpelt
+
+/obj/effect/landmark/mobcorpse/navytrooper/ranged
+	corpsehelmet = /obj/item/clothing/head/ushanka
+
+
+/obj/effect/landmark/mobcorpse/corporatemarine
+	name = "Corporate Alliance Marine"
+	corpseuniform = /obj/item/clothing/under/syndicate
+	corpsesuit = /obj/item/clothing/suit/armor/vest
+	corpseshoes = /obj/item/clothing/shoes/swat
+	corpsegloves = /obj/item/clothing/gloves/swat
+	corpseradio = /obj/item/device/radio/headset
+	corpsemask = /obj/item/clothing/mask/gas
+	corpsehelmet = /obj/item/clothing/head/helmet/swat
+	corpseback = /obj/item/weapon/storage/backpack
+	corpseid = 1
+	corpseidjob = "Marine"
+	corpseidaccess = "Syndicate"
+
+
+
+/obj/effect/landmark/mobcorpse/corporatecommando
+	name = "Corporate Alliance Commando"
+	corpseuniform = /obj/item/clothing/under/syndicate
+	corpsesuit = /obj/item/clothing/suit/space/void/merc
+	corpseshoes = /obj/item/clothing/shoes/swat
+	corpsegloves = /obj/item/clothing/gloves/swat
+	corpseradio = /obj/item/device/radio/headset
+	corpsemask = /obj/item/clothing/mask/gas/syndicate
+	corpsehelmet = /obj/item/clothing/head/helmet/space/void/merc
+	corpseback = /obj/item/weapon/tank/jetpack/oxygen
+	corpsepocket1 = /obj/item/weapon/tank/emergency_oxygen
+	corpseid = 1
+	corpseidjob = "Commando"
+	corpseidaccess = "Syndicate"	

@@ -22,6 +22,15 @@
 /obj/item/ammo_magazine/c38/rubber
 	name = "speed loader (.38 rubber)"
 	ammo_type = /obj/item/ammo_casing/c38r
+	
+/obj/item/ammo_magazine/a792
+	name = "stripper clip (7.92mm)" //Placed here since it's acting as a speed loader//
+	icon_state = "7.92x57m"
+	caliber = "a792"
+	matter = list("metal" = 2250)
+	ammo_type = /obj/item/ammo_casing/a792
+	max_ammo = 5
+	multiple_sprites = 1
 
 /obj/item/ammo_magazine/c45m
 	name = "magazine (.45)"
@@ -201,3 +210,35 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
 	max_ammo = 7
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/mp9mm
+	name = "Magazine (9mm Parabellum Maschinenpistole)"
+	icon_state = "9x19m"
+	mag_type = MAGAZINE
+	origin_tech = "combat=5"
+	matter = list(DEFAULT_WALL_MATERIAL = 2750)
+	caliber = "9mm"
+	ammo_type = /obj/item/ammo_casing/c9mm
+	max_ammo = 32
+	multiple_sprites = 0
+
+/obj/item/ammo_magazine/mp9mm/empty
+	initial_ammo = 0
+
+/*
+//unused garbage
+
+/obj/item/ammo_magazine/a418
+	name = "ammo box (.418)"
+	icon_state = "418"
+	ammo_type = "/obj/item/ammo_casing/a418"
+	max_ammo = 7
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a666
+	name = "ammo box (.666)"
+	icon_state = "666"
+	ammo_type = "/obj/item/ammo_casing/a666"
+	max_ammo = 4
+	multiple_sprites = 1
+*/

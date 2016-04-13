@@ -76,6 +76,14 @@
 			if(stage == 1)
 				path = 1
 				if(beakers.len)
+					message_admins("[user.name] ([user.ckey]) created a chemical grenade (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)")
+					var/log_str = "Chemical grenade created, reagents: "
+					for(var/obj/item/weapon/reagent_containers/glass/G in beakers)
+						for(var/datum/reagent/R in G.reagents.reagent_list)
+							log_str += R.name
+							log_str += ": [R.volume] units, "
+					log_str = copytext(log_str, 1, lentext(log_str) - 1)
+					message_admins(log_str, 0, 1);
 					user << "<span class='notice'>You lock the assembly.</span>"
 					name = "grenade"
 				else
@@ -141,48 +149,60 @@
 			icon_state = initial(icon_state) + (primed?"_primed":"_active")
 
 	prime()
-		if(!stage || stage<2) return
+		if(grenades_can_react)
+			if(!stage || stage<2) return
 
-		var/has_reagents = 0
-		for(var/obj/item/weapon/reagent_containers/glass/G in beakers)
-			if(G.reagents.total_volume) has_reagents = 1
+			//if(prob(reliability))
+			var/has_reagents = 0
+			for(var/obj/item/weapon/reagent_containers/glass/G in beakers)
+				if(G.reagents.total_volume) has_reagents = 1
 
-		active = 0
-		if(!has_reagents)
-			icon_state = initial(icon_state) +"_locked"
-			playsound(src.loc, 'sound/items/Screwdriver2.ogg', 50, 1)
-			spawn(0) //Otherwise det_time is erroneously set to 0 after this
-				if(istimer(detonator.a_left)) //Make sure description reflects that the timer has been reset
-					var/obj/item/device/assembly/timer/T = detonator.a_left
-					det_time = 10*T.time
-				if(istimer(detonator.a_right))
-					var/obj/item/device/assembly/timer/T = detonator.a_right
-					det_time = 10*T.time
-			return
+			active = 0
+			if(!has_reagents)
+				icon_state = initial(icon_state) +"_locked"
+				playsound(src.loc, 'sound/items/Screwdriver2.ogg', 50, 1)
+				spawn(0) //Otherwise det_time is erroneously set to 0 after this
+					if(istimer(detonator.a_left)) //Make sure description reflects that the timer has been reset
+						var/obj/item/device/assembly/timer/T = detonator.a_left
+						det_time = 10*T.time
+					if(istimer(detonator.a_right))
+						var/obj/item/device/assembly/timer/T = detonator.a_right
+						det_time = 10*T.time
+				return
 
-		playsound(src.loc, 'sound/effects/bamf.ogg', 50, 1)
+			playsound(src.loc, 'sound/effects/bamf.ogg', 50, 1)
 
-		for(var/obj/item/weapon/reagent_containers/glass/G in beakers)
-			G.reagents.trans_to_obj(src, G.reagents.total_volume)
+			for(var/obj/item/weapon/reagent_containers/glass/G in beakers)
+				G.reagents.trans_to(src, G.reagents.total_volume)
 
-		if(src.reagents.total_volume) //The possible reactions didnt use up all reagents.
-			var/datum/effect/effect/system/steam_spread/steam = new /datum/effect/effect/system/steam_spread()
-			steam.set_up(10, 0, get_turf(src))
-			steam.attach(src)
-			steam.start()
+			if(src.reagents.total_volume) //The possible reactions didnt use up all reagents.
+				var/datum/effect/effect/system/steam_spread/steam = new /datum/effect/effect/system/steam_spread()
+				steam.set_up(10, 0, get_turf(src))
+				steam.attach(src)
+				steam.start()
 
-			for(var/atom/A in view(affected_area, src.loc))
-				if( A == src ) continue
-				src.reagents.touch(A)
+				for(var/atom/A in view(affected_area, src.loc))
+					if( A == src ) continue
+					src.reagents.touch(A)
 
-		if(istype(loc, /mob/living/carbon))		//drop dat grenade if it goes off in your hand
-			var/mob/living/carbon/C = loc
-			C.drop_from_inventory(src)
-			C.throw_mode_off()
+			if(istype(loc, /mob/living/carbon))		//drop dat grenade if it goes off in your hand
+				var/mob/living/carbon/C = loc
+				C.drop_from_inventory(src)
+				C.throw_mode_off()
 
-		invisibility = INVISIBILITY_MAXIMUM //Why am i doing this?
-		spawn(50)		   //To make sure all reagents can work
-			qdel(src)	   //correctly before deleting the grenade.
+			invisibility = INVISIBILITY_MAXIMUM //Why am i doing this?
+			spawn(50)		   //To make sure all reagents can work
+				qdel(src)	   //correctly before deleting the grenade.
+		else
+			var/log_str = "Chemical grenade reaction stopped, reagents: "
+			for(var/obj/item/weapon/reagent_containers/glass/G in beakers)
+				for(var/datum/reagent/R in G.reagents.reagent_list)
+					log_str += R.name
+					log_str += ": [R.volume] units, "
+			log_str = copytext(log_str, 1, lentext(log_str) - 1)
+			message_admins(log_str, 0, 1);
+			if(src)
+				qdel(src)
 
 
 /obj/item/weapon/grenade/chem_grenade/large
