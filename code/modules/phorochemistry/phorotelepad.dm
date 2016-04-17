@@ -1,7 +1,7 @@
 /obj/machinery/telepad_phorochem
 	name = "telepad"
 	desc = "A bluespace telepad used for teleporting objects to and from a location."
-	icon = 'icons/obj/telescience.dmi'
+	icon = 'icons/phorochemistry.dmi'
 	icon_state = "pad-idle"
 	anchored = 1
 	use_power = 1
@@ -45,7 +45,7 @@
 /obj/item/weapon/phorochem_telepad
 	name = "telepad"
 	desc = "A bluespace telepad used for teleporting objects to and from a location."
-	icon = 'icons/obj/telescience.dmi'
+	icon = 'icons/phorochemistry.dmi'
 	icon_state = "pad-folded"
 
 	attack_self(mob/user as mob)

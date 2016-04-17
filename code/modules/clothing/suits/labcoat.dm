@@ -65,6 +65,14 @@
 	icon_open = "labcoat_cmoalt_open"
 	icon_closed = "labcoat_cmoalt"
 
+/obj/item/clothing/suit/storage/toggle/labcoat/pearcelabcoat
+	name = "chief medical officer labcoat"
+	desc = "A labcoat with command blue highlights."
+	icon = 'icons/obj/clothing/soapstation_gear.dmi'
+	icon_state = "pearcelabcoat_open"
+	icon_open = "pearcelabcoat_open"
+	icon_closed = "pearcelabcoat"
+
 /obj/item/clothing/suit/storage/toggle/labcoat/mad
 	name = "The Mad's labcoat"
 	desc = "It makes you look capable of konking someone on the noggin and shooting them into space."
