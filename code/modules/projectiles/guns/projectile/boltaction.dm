@@ -1,7 +1,7 @@
 /obj/item/weapon/gun/projectile/Mauser98K
 	name = "\improper Farben Karabiner 98K"
 	desc = "The standard bolt-action rifle of the German Wehrmacht during World War II. Well known for it's reliability, it's seen optimization and renewed production as one of the battle rifles for IG Farben's forces."
-	icon = '/icons/obj/soapstation_weapons.dmi'
+	icon = 'icons/obj/soapstation_weapons.dmi'
 	icon_state = "Kar98K"
 	item_state = "Kar98K" //placeholder
 	w_class = 4

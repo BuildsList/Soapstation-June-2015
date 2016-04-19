@@ -231,7 +231,7 @@
 /obj/item/weapon/gun/projectile/automatic/mp40
 	name = "\improper MP-40"
 	desc = "A modernized, improved version of the Maschinenpistole 40. It has found itself as a capable submachine gun in the hands of the Corporate Alliance. Uses 9mm Parabellum rounds."
-	icon = '/icons/obj/soapstation_weapons.dmi'
+	icon = 'icons/obj/soapstation_weapons.dmi'
 	icon_state = "MP-40"
 	item_state = "MP-40"
 	w_class = 3

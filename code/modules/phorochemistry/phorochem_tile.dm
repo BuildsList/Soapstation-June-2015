@@ -1,8 +1,11 @@
 /turf/simulated/floor/phorochem
 	name = "electromagnetic tile"
+	icon = 'icons/phorochemistry.dmi'
 	icon_state = "gcircuitoff"
-	icon_regular_floor = "gicircuitoff"
-	floor_type = /obj/item/stack/tile/phorochem
+	/var/icon_plating = "plating"
+	/var/icon_regular_floor = "icon_state" //I have no idea what i'm doing -Hugo.
+	var/list/wood_icons = list("wood","wood-broken") //recreating variable because was removed, probs not best practice but I dunno -Hugo.
+//	initial_flooring = /decl/flooring/phorochem
 	var/obj/item/stack/tile/fake_tile
 	var/icon_state_covered
 
@@ -36,7 +39,7 @@
 			name = "electromagnetic tile"
 		else
 			var/obj/item/stack/tile/T
-			T = new floor_type(src)
+			T = new initial_flooring(src)
 			T.x = T.x
 			src.ChangeTurf(/turf/simulated/floor) //make it plating through and through
 			src.make_plating()
@@ -45,10 +48,10 @@
 			playsound(src, 'sound/items/Crowbar.ogg', 80, 1)
 
 
-/turf/simulated/floor/phorochem/proc/get_tile_icon(var/obj/item/stack/tile/T) //horrible but it works -DrBrock
-	if(istype(T, /obj/item/stack/tile/light)) //NU
+/turf/simulated/floor/phorochem/proc/get_tile_icon(var/obj/item/stack/tile/T) //horrible but it works -DrBrock // Doesn't work anymore :( -Hugo.
+/*	if(istype(T, /obj/item/stack/tile/light)) //NU
 		return 0
-
+*/ //I don't think light tiles exist anymore ^
 	if(istype(T, /obj/item/stack/tile/wood))
 		if( !(icon_state in wood_icons) )
 			return "wood"

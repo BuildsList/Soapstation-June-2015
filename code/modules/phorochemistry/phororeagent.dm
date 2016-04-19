@@ -408,7 +408,7 @@ datum
 					else
 						if(istype(M, /mob/living/carbon/human))
 							var/mob/living/carbon/human/H = M
-							if(H.species.flags & IS_SYNTHETIC)
+							if(istype(M, /mob/living/silicon/robot))
 								H.take_overall_damage(0, volume/2)
 								H << "\red Some of your systems report damage as a result of the liquid."
 			//implementation also in power.dm, electrical_field.dm, and stunbaton.dm
