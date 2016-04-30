@@ -310,27 +310,17 @@ var/list/ai_verbs_default = list(
 	if(powered_ai.anchored)
 		use_power = 2
 
+
 /mob/living/silicon/ai/proc/pick_icon()
 	set category = "AI Commands"
 	set name = "Set AI Core Display"
 	if(stat || aiRestorePowerRoutine)
 		return
-	if(!custom_sprite) //Check to see if custom sprite time, checking the appopriate file to change a var
-		var/file = file2text("config/custom_sprites.txt")
-		var/lines = text2list(file, "\n")
 
-		for(var/line in lines)
-		// split & clean up
-			var/list/Entry = text2list(line, ":")
-			for(var/i = 1 to Entry.len)
-				Entry[i] = trim(Entry[i])
-
-			if(Entry.len < 2)
-				continue;
-
-			if(Entry[1] == src.ckey && Entry[2] == src.real_name)
-				custom_sprite = 1 //They're in the list? Custom sprite time
-				icon = CUSTOM_ITEM_ROBOT
+	if (!custom_sprite)
+		var/new_sprite = input("Select an icon!", "AI", selected_sprite) as null|anything in ai_icons
+		if(new_sprite) selected_sprite = new_sprite
+	updateicon()
 
 		//if(icon_state == initial(icon_state))
 	var/icontype = ""

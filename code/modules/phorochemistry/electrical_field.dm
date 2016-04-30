@@ -1,5 +1,5 @@
 /obj/effect/electrical_field
-	name = "small electric field"
+	name = "electric field"
 	icon = 'icons/rust.dmi'
 	icon_state = "emfield_s1"
 	pixel_x = 0
@@ -13,34 +13,41 @@
 		last_y = y
 
 	if(last_x != x || last_y != y)
-		del(src)
+		qdel(src)
 
-	for(var/mob/M in loc.contents)
-		shock(M, 4) //more condensed or somethin' -DrBrock
-
-/obj/effect/electrical_field/proc/shock(var/mob/M, var/damage = 2.5)
-	for(var/datum/reagent/phororeagent/R in M.reagents.reagent_list)
+/obj/effect/electrical_field/proc/shock(var/mob/living/L, var/damage = 2.5)
+	for(var/datum/reagent/phororeagent/R in L.reagents.reagent_list)
 		if(R.id == "fulguracin")
 			if(prob(20))
-				M << "\blue Your hairs stand up, but you resist the shock for the most part"
+				L << "\blue Your hairs stand up, but you resist the shock for the most part."
 			return //no shock for you
-	var/isHuman = istype(M, /mob/living/carbon/human)
+
+	if(L.stat != DEAD)
+		L.jitteriness = 140
+		if(!L.is_jittery)
+			spawn(0)
+				L.jittery_process()
+
+	var/isHuman = ishuman(L)
 	if(isHuman)
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/human/H = L
 		H.apply_effect(10, STUN, 0)
 		H.apply_effect(10, WEAKEN, 0)
 		H.apply_effect(10, STUTTER, 0)
 		H.take_overall_damage(0, damage) //has to be high or they just heal it away instantly
-		H.jitteriness = 140
-		if(!H.is_jittery)
-			spawn(0)
-				H.jittery_process()
 	else
-		M.Stun(10)
-
-	if(!isHuman && istype(M, /mob/living)) //should be guaranteed, making a check anyway
-		var/mob/living/L = M
+		L.Stun(10)
 		L.apply_damage(3, BURN)
+
+
+
+/obj/effect/electrical_field/small
+	name = "small electric field"
+
+/obj/effect/electrical_field/small/process_field()
+	..()
+	for(var/mob/living/L in loc.contents)
+		shock(L, 4) //more damage than big field because it's more condensed or something
 
 /obj/effect/electrical_field/big
 	name = "large electric field"
@@ -50,21 +57,10 @@
 	pixel_y = -32
 
 /obj/effect/electrical_field/big/process_field()
-	if(last_x == -1 && last_y == -1)
-		last_x = x
-		last_y = y
-
-	if(last_x != x || last_y != y)
-		del(src)
-
+	..()
 	var/turf/T = null
 	for(var/i = src.x - 1 to src.x + 1)
 		for(var/j = src.y - 1 to src.y + 1)
 			T = locate(i, j, z)
-			for(var/mob/M in T.contents) //only the middle X 9
-				shock(M)
-
-/*/obj/effect/electrical_field/New()
-	..()
-	spawn(50)
-		del(src)*/
+			for(var/mob/living/L in T.contents) //only the middle X 9
+				shock(L)

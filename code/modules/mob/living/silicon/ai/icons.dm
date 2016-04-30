@@ -149,7 +149,23 @@ var/list/datum/ai_icon/ai_icons
 	alive_icon = "ai-triumvirate"
 	alive_light = "#020B2B"
 
-/datum/ai_icon/triumvirate_static
-	name = "Triumvirate Static"
-	alive_icon = "ai-static"
-	alive_light = "#020B2B"
+//SoapStation Additions
+/datum/ai_icon/danny
+	name = "Danny"
+	alive_icon = "danny220-ai"
+	alive_light = "#ffffff"
+
+/datum/ai_icon/atlantiscze
+	name = "Atlantiscze"
+	alive_icon = "atlantiscze-ai"
+	alive_light = "#31c971"
+
+/datum/ai_icon/neerti
+	name = "Neerti"
+	alive_icon = "neerti-ai"
+	alive_light = "#31c971"
+
+/datum/ai_icon/oldfashioned
+	name = "Oldfashioned"
+	alive_icon = "ai-house"
+	alive_light = "#31c971"
