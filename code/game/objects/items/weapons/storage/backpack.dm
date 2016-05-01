@@ -61,27 +61,11 @@
 		return
 
 	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if(crit_fail)
-			user << "\red The Bluespace generator isn't working."
-			return
 		/*if(istype(W, /obj/item/weapon/storage/backpack/holding) && !W.crit_fail)
 			user << "\red The Bluespace interfaces of the two devices conflict and malfunction."
 			del(W)
 			return*/
 			 //BoH+BoH=Singularity, commented out.
-		if(istype(W, /obj/item/weapon/storage/backpack/holding) && !W.crit_fail)
-			investigate_log("has become a singularity. Caused by [user.key]","singulo")
-			user << "\red The Bluespace interfaces of the two devices catastrophically malfunction!"
-			for(var/mob/M in viewers(usr, null))
-				M << "<font size='20' color='red'><b>ALL HAIL LORD SINGULO!</b></font>"
-			del(W)
-			var/obj/singularity/singulo = new /obj/singularity(get_turf(src), 200, 30) //3 second delay
-			singulo.energy = 200 //so it stops warning me about not using it...
-			message_admins("[key_name_admin(user)] detonated a bag of holding")
-			log_game("[key_name(user)] detonated a bag of holding")
-			user.gib() //SUMMONING OUR LORD SINGULO REQUIRES A SACRIFICE
-			del(src)
-			return
 
 		if(istype(W, /obj/item/weapon/grab))
 			var/obj/item/weapon/grab/grab = W
@@ -182,7 +166,6 @@
 					H << "Your bag of holding shorts out"
 					for (var/obj/O in hold.contents) //it broke, delete what was in it
 						del(O)
-					hold.crit_fail = 1
 					hold.icon_state = "brokenpack"
 				else
 					if(istype(object, /obj/item/weapon/disk/nuclear))
