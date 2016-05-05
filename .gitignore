@@ -6,6 +6,11 @@ Thumbs.db
 *.dmb
 *.lk
 *.backup
+config/*.*
+
+config/names/ai.txt
+
+
 baystation12.int
 data/
 cfg/
