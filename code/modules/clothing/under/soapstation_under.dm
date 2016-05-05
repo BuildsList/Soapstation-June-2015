@@ -58,8 +58,6 @@
 	item_state = "warden_skirt_item"
 	worn_state = "warden_skirt_s"
 
-
-
 /obj/item/clothing/under/soapstation/ncr_uniform
 	name = "NCR Uniform"
 	desc = "Is that radiation glow?"
@@ -77,6 +75,66 @@
 /obj/item/clothing/under/soapstation/Syndy_girl
 	name = "Syndicate Jumpskirt"
 	desc = "Female Syndicate jumpskirt"
-	icon_state = "syndicatef"
+	icon_state = "syndicatef_s"
 	item_state = "syndicatef_s"
 	worn_state = "syndicatef_s"
+
+/obj/item/clothing/under/soapstation/mafiavest
+	name = "Business uniform"
+	desc = "Extreme problems often require extreme solutions."
+	icon_state = "mafia_vest_s"
+	item_state = "mafia_vest_s"
+	has_sensor = 0
+	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.9
+
+
+//Farben Gear
+
+/obj/item/clothing/under/soapstation/farbenofficer
+	name = "IG Farben Officer uniform"
+	desc = "A uniform from IG Farben, with gold trim on the shoulder denoting a position of command. Worn by field members of Farben's officer corps and its Veteran members alike as a result of its versatility."
+	icon_state = "farben_officer"
+	item_state = "farben_officer_s"
+	has_sensor = 0
+	armor = list(melee = 10, bullet = 10, laser = 5,energy = 5, bomb = 5, bio = 2, rad = 2)
+	siemens_coefficient = 0.9
+
+	/obj/item/clothing/under/soapstation/farbengrenadier
+	name = "IG Farben Officer uniform"
+	desc = "A uniform from IG Farben, worn by many members of their general forces.It is designed with user survivability in mind."
+	icon_state = "farben_grenadier"
+	item_state = "farben_grenadier_s"
+	has_sensor = 0
+	armor = list(melee = 10, bullet = 10, laser = 5,energy = 5, bomb = 5, bio = 0, rad = 0)
+	siemens_coefficient = 0.9
+
+
+//Solarium Clothing
+
+/obj/item/clothing/under/soapstation/solariumco
+	name = "Captain uniform"
+	desc = "It's some non-descript, slightly suspicious looking, civilian clothing."
+	icon_state = "sol_co"
+	item_state = "sol_co"
+	has_sensor = 0
+	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.9
+
+/obj/item/clothing/under/soapstation/solariumxo
+	name = "Solarium squad leader uniform"
+	desc = "It's some non-descript, slightly suspicious looking, civilian clothing."
+	icon_state = "sol_xo"
+	item_state = "sol_xo"
+	has_sensor = 0
+	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.9
+
+/obj/item/clothing/under/soapstation/solariumcombat
+	name = "Solarium soldier uniform"
+	desc = "It's some non-descript, slightly suspicious looking, civilian clothing."
+	icon_state = "sol_soldier"
+	item_state = "sol_soldier"
+	has_sensor = 0
+	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	siemens_coefficient = 0.9

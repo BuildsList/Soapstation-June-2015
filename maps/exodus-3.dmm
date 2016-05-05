@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 "aa" = (/turf/space,/area/space)
 "ab" = (/turf/simulated/shuttle/wall{icon_state = "swall_s"; dir = 4},/area/derelict/ship)
 "ac" = (/turf/simulated/shuttle/wall{icon_state = "swall_t"; dir = 4},/area/derelict/ship)

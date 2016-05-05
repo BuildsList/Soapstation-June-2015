@@ -1,3 +1,5 @@
+#define PHORONICS_TESTING 1
+
 /datum/phororeaction
 	var/reactant_id = ""
 	var/result_id = ""
@@ -5,7 +7,9 @@
 	var/intensity = 1
 
 /datum/phororeaction/New(var/input, var/output, var/rate = 1, var/level = 1)
-//	testing("[input]: [output], [level]")
+	#if PHORONICS_TESTING
+	testing("[input]: [output], [level]")
+	#endif
 	reactant_id = input
 	result_id = output
 	conversion_rate = rate
@@ -36,10 +40,10 @@
 
 /datum/phororeactions/proc/set_up_reactions()
 	reactions["tricordrazine"] = new/datum/phororeaction("tricordrazine", "bicordrazine", 1.5, 3)
-//	reactions["mutagen"] = new/datum/phororeaction("mutagen", "mutagen_x", 0.5, 5)
+	reactions["mutagen"] = new/datum/phororeaction("mutagen", "mutagen_x", 0.5, 5)
 	reactions["ethylredoxrazine"] = new/datum/phororeaction("ethylredoxrazine", "expulsicol", 1, 2)
 	reactions["hyronalin"] = new/datum/phororeaction("hyronalin", "rad_x", 1, 3)
-	reactions["pacid"] = new/datum/phororeaction("pacid", "phoronic_acid", 0.2, 4)
+	//reactions["pacid"] = new/datum/phororeaction("pacid", "phoronic_acid", 0.2, 4) removed
 	reactions["phoron"] = new/datum/phororeaction("phoron", "energized_phoron", 1, 5)
 	reactions["oxycodone"] = new/datum/phororeaction("oxycodone", "oxyphoromin", 0.5, 1)
 

@@ -37,14 +37,6 @@
 		var/description = "Analysis complete - [P.name]: [P.description]"
 		var/id = P.id
 		sleep(20)
-		/*P.name = P.real_name
-		P.description = P.real_desc
-		//globally update
-		for(var/obj/item/weapon/reagent_containers/container in world)
-			for(var/datum/reagent/phororeagent/sample in container.reagents.reagent_list)
-				if(sample.id == P.id)
-					sample.name = sample.real_name
-					sample.description = sample.real_desc*/
 		discovered_phororeagents.Add(id)
 		state(description)
 	else
