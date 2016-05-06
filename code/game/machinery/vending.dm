@@ -985,6 +985,7 @@
 /obj/machinery/vending/clothes
 	name = "Clothes to Goes" //Made by Cpm311, Idea by Nicolodosh
 	desc = "A vending machine for clothing."
+	icon = 'icons/clothes_vender.dmi'
 	icon_state = "clothes"
 	product_slogans = "You choose your clothes for your day!;Don't Go without new Clothes to Go!;Why wait for others when your clothes are here?"
 	vend_delay = 15
