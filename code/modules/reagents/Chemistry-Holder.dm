@@ -97,30 +97,30 @@
 		return 0
 	if(my_atom.flags & NOREACT) // No reactions here
 		return 0
-	
+
 	var/reaction_occured
 	var/list/effect_reactions = list()
 	var/list/eligible_reactions = list()
 	for(var/i in 1 to PROCESS_REACTION_ITER)
 		reaction_occured = 0
-		
+
 		//need to rebuild this to account for chain reactions
 		for(var/datum/reagent/R in reagent_list)
 			eligible_reactions |= chemical_reactions_list[R.id]
-		
+
 		for(var/datum/chemical_reaction/C in eligible_reactions)
 			if(C.can_happen(src) && C.process(src))
 				effect_reactions |= C
 				reaction_occured = 1
-		
+
 		eligible_reactions.Cut()
-		
+
 		if(!reaction_occured)
 			break
-	
+
 	for(var/datum/chemical_reaction/C in effect_reactions)
 		C.post_reaction(src)
-	
+
 	update_total()
 	return reaction_occured
 
@@ -265,8 +265,6 @@
 	var/part = amount / total_volume
 
 	for(var/datum/reagent/current in reagent_list)
-		if(!current.on_transfer(current.volume * part))
-			continue
 		var/amount_to_transfer = current.volume * part
 		target.add_reagent(current.id, amount_to_transfer * multiplier, current.get_data(), safety = 1) // We don't react until everything is in place
 		if(!copy)
@@ -284,9 +282,6 @@
 //If for some reason touch effects are bypassed (e.g. injecting stuff directly into a reagent container or person),
 //call the appropriate trans_to_*() proc.
 /datum/reagents/proc/trans_to(var/atom/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
-	for(var/datum/reagent/current in reagent_list)
-		if(current.on_transfer(current.volume * (amount / src.total_volume)))
-			return 0
 	touch(target) //First, handle mere touch effects
 
 	if(ismob(target))
@@ -305,7 +300,7 @@
 		amount -= spill
 	if(spill)
 		splash(target.loc, spill, multiplier, copy, min_spill, max_spill)
-	
+
 	trans_to(target, amount, multiplier, copy)
 
 /datum/reagents/proc/trans_id_to(var/atom/target, var/id, var/amount = 1)
