@@ -1,6 +1,7 @@
 /world
 	hub = "Exadv1.spacestation13"
 	name = "Soap Station 12"
+	hub_password = "kMZy3U5jJHSiBQjr"
 #ifdef HUB_ENABLED
 	hub_password = "kMZy3U5jJHSiBQjr"
 #else
