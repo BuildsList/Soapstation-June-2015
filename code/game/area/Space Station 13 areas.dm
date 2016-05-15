@@ -1588,7 +1588,7 @@ area/space/atmosalert()
 	icon_state = "toxmix"
 
 /area/rnd/misc_lab
-	name = "\improper Miscellaneous Research"
+	name = "\improper Phoronics Research"
 	icon_state = "toxmisc"
 
 /area/toxins/server

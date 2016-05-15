@@ -2,11 +2,10 @@
 	density = 1
 	name = "grave"
 	desc = "It's a grave."
-	luminosity = 8
+	light_power = 1
+	light_range = 4
 	icon = 'icons/graves.dmi'
 	anchored = 1
-
-
 
 /obj/structure/grave/fancy_grave
 	name = "Fancy's Grave"
