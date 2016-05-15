@@ -116,3 +116,16 @@ area/security/station/cave
 
 /area/shuttle/event_stuff/satelite_escape_shuttle
 	name = "\improper Emergency Shuttle Satelite"
+
+/////////////Fancy's Gravy\\\\\\\\\\\\\\
+
+/area/grave
+	icon = 'icons/turf/cruiser_areas.dmi'
+
+/area/grave/asteroid
+	name = "\improper Asteroid"
+	icon_state = "fancy_asteroid"
+
+/area/grave/asteroid/core
+	name = "\improper Asteroid Core"
+	icon_state = "fancy_core"

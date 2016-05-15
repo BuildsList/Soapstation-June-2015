@@ -1,21 +1,3 @@
-//////////////////////Custom Soap\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-/obj/item/weapon/soap/fluff/hugo_soap
-	desc = "One true soap to rule them all."
-	icon_state = "golden_soap"
-	icon = 'icons/obj/custom_items.dmi'
-
-/obj/item/weapon/soap/fluff/innerwulf
-	desc = "Smells like justice."
-	icon_state = "innerwulf"
-	icon = 'icons/obj/custom_items.dmi'
-
-/obj/item/weapon/soap/fluff/cebu //Donated $20 :D
-	desc = "Can anyone else smell blue?"
-	icon = 'icons/obj/custom_items.dmi'
-	icon_state = "cebu"
-	item_state = "cebu"
-
 /obj/item/clothing/suit/storage/toggle/brown_jacket/cebrutis
 	name = "Dylan's Jacket"
 	desc = "A brown leather coat. The letters NT are proudly displayed on the back."
