@@ -178,7 +178,7 @@
 
 			AttemptLateSpawn(href_list["SelectedJob"],client.prefs.spawnpoint)
 			return
-/*
+
 		if(href_list["privacy_poll"])
 			establish_db_connection()
 			if(!dbcon.IsConnected())
@@ -216,7 +216,7 @@
 				query_insert.Execute()
 				usr << "<b>Thank you for your vote!</b>"
 				usr << browse(null,"window=privacypoll")
-*/
+
 		if(!ready && href_list["preference"])
 			if(client)
 				client.prefs.process_link(src, href_list)
@@ -329,12 +329,9 @@
 			return
 
 		//Find our spawning point.
-//		var/join_message = job_master.LateSpawn(character, rank)
 		var/join_message = job_master.LateSpawn(character, rank)
 
 		character.lastarea = get_area(loc)
-//		/datum/spawnpoint/cryo.turfs(lastarea = get_area(loc)) //defines exactly where someone spawns. Makes use of 'character' which is defined above.
-
 		// Moving wheelchair if they have one
 		if(character.buckled && istype(character.buckled, /obj/structure/bed/chair/wheelchair))
 			character.buckled.loc = character.loc

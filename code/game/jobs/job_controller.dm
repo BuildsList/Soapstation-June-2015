@@ -594,17 +594,15 @@ var/global/datum/controller/occupations/job_master
 
 	if(H.client.prefs.spawnpoint)
 		spawnpos = spawntypes[H.client.prefs.spawnpoint]
-	if(recolony == 1)
-		H.loc = pick(latejoin_recolony)
-	else
-		if(spawnpos && istype(spawnpos))
-			if(spawnpos.check_job_spawning(rank))
-				H.loc = pick(spawnpos.turfs)
-				. = spawnpos.msg
-			else
-				H << "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead."
-				H.loc = pick(latejoin)
-				. = "has arrived on the station"
+
+	if(spawnpos && istype(spawnpos))
+		if(spawnpos.check_job_spawning(rank))
+			H.loc = pick(spawnpos.turfs)
+			. = spawnpos.msg
 		else
+			H << "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead."
 			H.loc = pick(latejoin)
 			. = "has arrived on the station"
+	else
+		H.loc = pick(latejoin)
+		. = "has arrived on the station"
