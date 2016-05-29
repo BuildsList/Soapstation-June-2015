@@ -2,7 +2,7 @@
  * Holds procs designed to change one type of value, into another.
  * Contains:
  *			hex2num & num2hex
- *			text2list & list2text
+ *			text2list & jointext
  *			file2list
  *			angle2dir
  *			angle2text
@@ -51,7 +51,7 @@
 		. = "0[.]"
 
 // Concatenates a list of strings into a single string.  A seperator may optionally be provided.
-/proc/list2text(list/ls, sep)
+/proc/jointext(list/ls, sep)
 	if (ls.len <= 1) // Early-out code for empty or singleton lists.
 		return ls.len ? ls[1] : ""
 
@@ -135,8 +135,8 @@
 		#undef S4
 		#undef S1
 
-// Slower then list2text, but correctly processes associative lists.
-proc/tg_list2text(list/list, glue=",")
+// Slower then jointext, but correctly processes associative lists.
+proc/tg_jointext(list/list, glue=",")
 	if (!istype(list) || !list.len)
 		return
 	var/output

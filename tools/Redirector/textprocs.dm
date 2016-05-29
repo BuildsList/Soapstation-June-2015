@@ -27,12 +27,12 @@ proc
 		// A nice way to do this is to split the text into an array based on the search_string,
 		// then put it back together into text using replacement_string as the new separator.
 		var/list/textList = dd_text2list(text, search_string)
-		return dd_list2text(textList, replacement_string)
+		return dd_jointext(textList, replacement_string)
 
 
 	dd_replaceText(text, search_string, replacement_string)
 		var/list/textList = dd_text2List(text, search_string)
-		return dd_list2text(textList, replacement_string)
+		return dd_jointext(textList, replacement_string)
 
 
     /////////////////////
@@ -103,7 +103,7 @@ proc
 					textList += ""											// So add empty element.
 					return textList
 
-	dd_list2text(list/the_list, separator)
+	dd_jointext(list/the_list, separator)
 		var/total = the_list.len
 		if (total == 0)														// Nothing to work with.
 			return
