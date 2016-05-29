@@ -92,7 +92,7 @@
 
 	if(voice_sub == "Unknown")
 		if(copytext(message, 1, 2) != "*")
-			var/list/temp_message = text2list(message, " ")
+			var/list/temp_message = splittext(message, " ")
 			var/list/pick_list = list()
 			for(var/i = 1, i <= temp_message.len, i++)
 				pick_list += i

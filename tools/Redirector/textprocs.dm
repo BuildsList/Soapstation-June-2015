@@ -17,7 +17,7 @@ proc
 			file = file_path
 		else
 			file = file(file_path)
-		return dd_text2list(file2text(file), separator)
+		return dd_splittext(file2text(file), separator)
 
 
     ////////////////////
@@ -26,12 +26,12 @@ proc
 	dd_replacetext(text, search_string, replacement_string)
 		// A nice way to do this is to split the text into an array based on the search_string,
 		// then put it back together into text using replacement_string as the new separator.
-		var/list/textList = dd_text2list(text, search_string)
+		var/list/textList = dd_splittext(text, search_string)
 		return dd_jointext(textList, replacement_string)
 
 
 	dd_replaceText(text, search_string, replacement_string)
-		var/list/textList = dd_text2List(text, search_string)
+		var/list/textList = dd_splittext(text, search_string)
 		return dd_jointext(textList, replacement_string)
 
 
@@ -63,7 +63,7 @@ proc
 	/////////////////////////////
 	// Turning text into lists //
 	/////////////////////////////
-	dd_text2list(text, separator)
+	dd_splittext(text, separator)
 		var/textlength      = lentext(text)
 		var/separatorlength = lentext(separator)
 		var/list/textList   = new /list()
@@ -83,7 +83,7 @@ proc
 					textList += ""											// So add empty element.
 					return textList
 
-	dd_text2List(text, separator)
+	dd_splittext(text, separator)
 		var/textlength      = lentext(text)
 		var/separatorlength = lentext(separator)
 		var/list/textList   = new /list()
