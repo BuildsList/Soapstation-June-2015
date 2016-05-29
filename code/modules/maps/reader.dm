@@ -143,7 +143,7 @@ var/global/dmm_suite/preloader/_preloader = null
 		var/variables_start = findtext(full_def,"{")
 		if(variables_start)//if there's any variable
 			full_def = copytext(full_def,variables_start+1,length(full_def))//removing the last '}'
-			fields = text2list(full_def,";")
+			fields = splittext(full_def,";")
 
 		//then fill the members_attributes list with the corresponding variables
 		members_attributes.len++
