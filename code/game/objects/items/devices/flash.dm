@@ -77,7 +77,7 @@
 					flash_strength *= H.species.flash_mod
 				if(flash_strength > 0)
 					M.Weaken(flash_strength)
-					M.flash_eyes()
+					flick("e_flash", M.flash)
 			else
 				flashfail = 1
 
@@ -116,9 +116,9 @@
 
 /obj/item/device/flash/attack_self(mob/living/carbon/user as mob, flag = 0, emp = 0)
 	if(!user || !clown_check(user)) 	return
-
+	
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-
+	
 	if(broken)
 		user.show_message("<span class='warning'>The [src.name] is broken</span>", 2)
 		return
@@ -160,7 +160,7 @@
 		var/safety = M.eyecheck()
 		if(safety < FLASH_PROTECTION_MODERATE)
 			if(!M.blinded)
-				M.flash_eyes()
+				flick("flash", M.flash)
 
 	return
 
@@ -179,7 +179,7 @@
 				var/safety = M.eyecheck()
 				if(safety < FLASH_PROTECTION_MODERATE)
 					M.Weaken(10)
-					M.flash_eyes()
+					flick("e_flash", M.flash)
 					for(var/mob/O in viewers(M, null))
 						O.show_message("<span class='disarm'>[M] is blinded by the flash!</span>")
 	..()

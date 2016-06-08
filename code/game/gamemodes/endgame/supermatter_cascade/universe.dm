@@ -43,10 +43,7 @@ var/global/universe_has_ended = 0
 	world << sound('sound/effects/cascade.ogg')
 
 	for(var/mob/M in player_list)
-		M.overlay_fullscreen("flash", /obj/screen/fullscreen/flash)
-		spawn(25)
-			if(M)
-				M.clear_fullscreen("flash", 25)
+		flick("e_flash", M.flash)
 
 	if(emergency_shuttle.can_recall())
 		priority_announcement.Announce("The emergency shuttle has returned due to bluespace distortion.")
@@ -125,6 +122,6 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 			continue
 		if(M.current.stat!=2)
 			M.current.Weaken(10)
-			M.current.flash_eyes()
+			flick("e_flash", M.current.flash)
 
 		clear_antag_roles(M)
