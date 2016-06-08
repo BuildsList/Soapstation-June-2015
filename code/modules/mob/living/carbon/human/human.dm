@@ -88,7 +88,7 @@
 
 /mob/living/carbon/human/ex_act(severity)
 	if(!blinded)
-		flash_eyes()
+		flick("flash", flash)
 
 	var/shielded = 0
 	var/b_loss = null

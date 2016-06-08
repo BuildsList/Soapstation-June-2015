@@ -81,7 +81,7 @@
 					user << "<span class='notice'>\The [M]'s pupils narrow.</span>"
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //can be used offensively
-			M.flash_eyes()
+			flick("flash", M.flash)
 	else
 		return ..()
 
