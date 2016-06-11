@@ -14,6 +14,11 @@
  *	-Sayu
  */
 
+/*
+ *Added Chemistry bag here
+ *  -RadiantFlash
+ */
+
 //  Generic non-item
 /obj/item/weapon/storage/bag
 	allow_quick_gather = 1
@@ -78,6 +83,20 @@
 	max_w_class = 3
 	can_hold = list(/obj/item/weapon/ore)
 
+// -----------------------------
+//        Chemistry Bag
+// -----------------------------
+
+/obj/item/weapon/storage/bag/chemistry
+	name = "chemistry bag"
+	desc = "This orange container is used to carry bottles and beakers."
+	icon = 'icons/obj/soapstation_storage.dmi'
+	icon_state = "chemistry_bag"
+	slot_flags = SLOT_BELT | SLOT_POCKET
+	w_class = 3
+	max_storage_space = 50
+	max_w_class = 3
+	can_hold = list(/obj/item/weapon/reagent_containers/glass, /obj/item/weapon.reagent_containers/pill)
 
 // -----------------------------
 //          Plant bag

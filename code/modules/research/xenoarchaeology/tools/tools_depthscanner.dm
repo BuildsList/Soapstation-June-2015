@@ -5,9 +5,9 @@
 //also known as the x-ray diffractor
 /obj/item/device/depth_scanner
 	name = "depth analysis scanner"
-	desc = "Used to check spatial depth and density of rock outcroppings."
-	icon = 'icons/obj/pda.dmi'
-	icon_state = "crap"
+	desc = "Used to check spatial depth and density of rock outcroppings. Scientific name: X-ray diffractor."
+	icon = 'icons/obj/soapstation_devices.dmi'
+	icon_state = "depth_analyzer"
 	item_state = "analyzer"
 	w_class = 2.0
 	slot_flags = SLOT_BELT
