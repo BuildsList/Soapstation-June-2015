@@ -148,6 +148,26 @@
 
 	make_exact_fit()
 
+/obj/item/weapon/storage/firstaid/surgeryb
+	name = "surgery kit"
+	desc = "Contains tools for surgery. Has precise foam fitting for safe transport."
+	icon = 'icons/obj/soapstation_storage.dmi'
+	icon_state = "surgery_bag"
+/obj/item/weapon/storage/firstaid/surgery/New()
+	..()
+	if (empty) return
+	new /obj/item/weapon/bonesetter(src)
+	new /obj/item/weapon/cautery(src)
+	new /obj/item/weapon/circular_saw(src)
+	new /obj/item/weapon/hemostat(src)
+	new /obj/item/weapon/retractor(src)
+	new /obj/item/weapon/scalpel(src)
+	new /obj/item/weapon/surgicaldrill(src)
+	new /obj/item/weapon/bonegel(src)
+	new /obj/item/weapon/FixOVein(src)
+	new /obj/item/stack/medical/advanced/bruise_pack(src)
+
+	make_exact_fit()
 /*
  * Pill Bottles
  */

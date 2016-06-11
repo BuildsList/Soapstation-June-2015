@@ -450,3 +450,8 @@
 	name = "emergency response team medical backpack"
 	desc = "A spacious backpack with lots of pockets, worn by medical members of an Emergency Response Team."
 	icon_state = "ert_medical"
+
+/*
+ * Dufflebag Types
+ *Soon to be adddedd
+ */

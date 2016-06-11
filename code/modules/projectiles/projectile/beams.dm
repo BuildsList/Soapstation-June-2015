@@ -2,7 +2,7 @@
 	name = "laser"
 	icon_state = "laser"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 40
+	damage = 25
 	damage_type = BURN
 	check_armour = "laser"
 	eyeblur = 4
@@ -24,7 +24,7 @@
 	eyeblur = 2
 
 /obj/item/projectile/beam/midlaser
-	damage = 40
+	damage = 35
 	armor_penetration = 10
 
 /obj/item/projectile/beam/heavylaser
@@ -146,7 +146,17 @@
 	taser_effect = 1
 	agony = 40
 	damage_type = HALLOSS
-	
+
 	muzzle_type = /obj/effect/projectile/stun/muzzle
 	tracer_type = /obj/effect/projectile/stun/tracer
 	impact_type = /obj/effect/projectile/stun/impact
+
+/obj/item/projectile/beam/omni
+	name = "Hypoxia"
+	icon_state = "u_laser"
+	damage = 20
+	damage_type = OXY
+
+	muzzle_type = /obj/effect/projectile/laser_omni/muzzle
+	tracer_type = /obj/effect/projectile/laser_omni/tracer
+	impact_type = /obj/effect/projectile/laser_omni/impact

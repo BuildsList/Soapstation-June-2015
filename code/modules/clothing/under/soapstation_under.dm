@@ -75,8 +75,8 @@
 /obj/item/clothing/under/soapstation/Syndy_girl
 	name = "Syndicate Jumpskirt"
 	desc = "Female Syndicate jumpskirt"
-	icon_state = "syndicatef_s"
-	item_state = "syndicatef_s"
+	icon_state = "syndicatef"
+	item_state = "syndicatef"
 	worn_state = "syndicatef_s"
 
 /obj/item/clothing/under/soapstation/mafiavest
@@ -96,6 +96,7 @@
 	desc = "A uniform from IG Farben, with gold trim on the shoulder denoting a position of command. Worn by field members of Farben's officer corps and its Veteran members alike as a result of its versatility."
 	icon_state = "farben_officer"
 	item_state = "farben_officer_s"
+	worn_state = "farben_officer_s"
 	has_sensor = 0
 	armor = list(melee = 10, bullet = 10, laser = 5,energy = 5, bomb = 5, bio = 2, rad = 2)
 	siemens_coefficient = 0.9
@@ -117,6 +118,7 @@
 	desc = "It's some non-descript, slightly suspicious looking, civilian clothing."
 	icon_state = "sol_co"
 	item_state = "sol_co"
+	worn_state = "sol_co_s"
 	has_sensor = 0
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.9
@@ -126,6 +128,7 @@
 	desc = "It's some non-descript, slightly suspicious looking, civilian clothing."
 	icon_state = "sol_xo"
 	item_state = "sol_xo"
+	worn_state = "sol_xo_s"
 	has_sensor = 0
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.9
@@ -135,6 +138,7 @@
 	desc = "It's some non-descript, slightly suspicious looking, civilian clothing."
 	icon_state = "sol_soldier"
 	item_state = "sol_soldier"
+	worn_state = "sol_soldier_s"
 	has_sensor = 0
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.9

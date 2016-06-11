@@ -22,11 +22,40 @@
 	icon_state = "wood"
 	initial_flooring = /decl/flooring/wood
 
+/turf/simulated/floor/wood/broken
+	name = "Damaged wooden floor"
+	icon = 'icons/turf/flooring/wood.dmi'
+	icon_state = "wood_broken0"
+	initial_flooring = /decl/flooring/wood
+
+/turf/simulated/floor/wood/brokenb
+	name = "Damaged wooden floor"
+	icon = 'icons/turf/flooring/wood.dmi'
+	icon_state = "wood_broken1"
+	initial_flooring = /decl/flooring/wood
+
+/turf/simulated/floor/wood/brokenc
+	name = "Damaged wooden floor"
+	icon = 'icons/turf/flooring/wood.dmi'
+	icon_state = "wood_broken2"
+	initial_flooring = /decl/flooring/wood
+
+/turf/simulated/floor/wood/brokend
+	name = "Damaged wooden floor"
+	icon = 'icons/turf/flooring/wood.dmi'
+	icon_state = "wood_broken3"
+	initial_flooring = /decl/flooring/wood
+
 /turf/simulated/floor/grass
 	name = "grass patch"
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
+
+/turf/simulated/floor/asteroidb
+	name = "sand"
+	icon = 'icons/turf/flooring/asteroid.dmi'
+	icon_state = "asteroid"
 
 /turf/simulated/floor/carpet/blue
 	name = "blue carpet"
@@ -214,4 +243,4 @@
 /turf/simulated/floor/bluespace
 	name = "bluespace"
 	icon_state = "bcircuitoff"
-	explosion_resistance = 100 
+	explosion_resistance = 100

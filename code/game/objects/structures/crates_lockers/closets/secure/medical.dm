@@ -201,3 +201,29 @@
 				icon_state = icon_closed
 		else
 			icon_state = icon_opened
+
+/obj/structure/closet/secure_closet/medical4
+	name = "Paramedic's locker"
+	req_access = list(access_medical_equip)
+	icon = 'icons/obj/soapstation_closet.dmi'
+	icon_state = "securemed2"
+	icon_closed = "securemed3"
+	icon_locked = "securemed2"
+	icon_opened = "securemedopen2"
+	icon_broken = "securemedbroken2"
+	icon_off = "securemedoff2"
+
+	New()
+		..()
+		if(prob(50))
+			new /obj/item/weapon/storage/backpack/medic(src)
+		else
+			new /obj/item/weapon/storage/backpack/satchel_med(src)
+		new /obj/item/clothing/suit/storage/toggle/fr_jacket/ems(src)
+		new /obj/item/clothing/suit/storage/toggle/fr_jacket(src)
+		new /obj/item/clothing/shoes/jackboots(src)
+		new /obj/item/weapon/cartridge/medical(src)
+		new /obj/item/device/radio/headset/headset_med(src)
+		new /obj/item/taperoll/medical(src)
+		new /obj/item/weapon/storage/firstaid/adv
+		return

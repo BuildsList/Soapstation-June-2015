@@ -11,7 +11,7 @@
 	..()
 	if (!prob(spawn_nothing_percentage))
 		spawn_item()
-		
+
 /obj/random/initialize()
 	..()
 	qdel(src)
@@ -160,7 +160,6 @@
 	spawn_nothing_percentage = 50
 	item_to_spawn()
 		return pick(prob(3);/obj/item/weapon/storage/pill_bottle/tramadol,\
-					prob(4);/obj/item/weapon/haircomb,\
 					prob(2);/obj/item/weapon/storage/pill_bottle/happy,\
 					prob(2);/obj/item/weapon/storage/pill_bottle/zoom,\
 					prob(5);/obj/item/weapon/contraband/poster,\
@@ -280,3 +279,30 @@
 					/obj/item/toy/plushie/kitten,\
 					/obj/item/toy/plushie/lizard)
 
+/obj/random/maintence
+	name = "random maintence loot"
+	desc = "This is a random loot"
+	icon = 'icons/obj/contraband.dmi'
+	icon_state = "rolled_poster"
+	item_to_spawn()
+		return pick(prob(3);/obj/item/weapon/storage/pill_bottle/tramadol,\
+					prob(2);/obj/item/weapon/storage/pill_bottle/happy,\
+					prob(2);/obj/item/weapon/storage/pill_bottle/zoom,\
+					prob(5);/obj/item/weapon/contraband/poster,\
+					prob(2);/obj/item/weapon/material/butterfly,\
+					prob(3);/obj/item/weapon/material/butterflyblade,\
+					prob(3);/obj/item/weapon/material/butterflyhandle,\
+					prob(3);/obj/item/weapon/material/wirerod,\
+					prob(1);/obj/item/weapon/material/butterfly/switchblade,\
+					prob(2);/obj/random/toolbox,\
+					prob(3);/obj/random/powercell,\
+					prob(3);/obj/item/device/paicard,\
+					prob(2);/obj/random/technology_scanner,\
+					prob(3);/obj/item/weapon/packageWrap,\
+					prob(2);/obj/item/device/pda,\
+					prob(1);/obj/item/clothing/gloves/fyellow,\
+					prob(2);/obj/item/clothing/head/welding,\
+					prob(2);/obj/item/weapon/coin/silver,\
+					prob(2);/obj/item/clothing/head/ushanka,\
+					prob(2);/obj/item/clothing/glasses/sunglasses,\
+					prob(1);/obj/item/weapon/reagent_containers/syringe/drugs)

@@ -1031,7 +1031,10 @@ area/space/atmosalert()
 	name = "\improper Internal Affairs"
 	icon_state = "law"
 
-
+/area/courtroom
+	name = "\improper Court Room"
+	icon_state = "law"
+	sound_env = AUDITORIUM
 
 
 /area/holodeck
@@ -1400,6 +1403,21 @@ area/space/atmosalert()
 	name = "\improper Emergency Treatment Centre"
 	icon_state = "exam_room"
 
+/area/medical/medicine
+	name = "Medicine Storage"
+	icon_state = "exam_room"
+
+/area/medical/paramedic
+	name = "Paramedic Office"
+	icon_state = "patients"
+
+/area/medical/eqstorage
+	name = "Medical EquipmentStorage"
+	icon_state = "medbay3"
+
+/area/medical/scanning
+	name = "Diagnostics Scanning Room"
+	icon_state = "genetics"
 //Security
 
 /area/security/main
@@ -1409,6 +1427,17 @@ area/space/atmosalert()
 /area/security/lobby
 	name = "\improper Security Lobby"
 	icon_state = "security"
+
+/area/security/bathroom
+	name = "\improper Security Bathroom"
+	icon_state = "security"
+
+/area/security/execution
+	name = "\improper Justice Chamber"
+	icon_state = "sec_prison"
+/area/security/bed
+	name = "\improper Security Bedroom"
+	icon_state = "brig"
 
 /area/security/brig
 	name = "\improper Security - Brig"
@@ -1422,8 +1451,20 @@ area/space/atmosalert()
 		temp_timer.releasetime = 1
 	..()
 
+/area/security/cellblock
+	name = "\improper Cell Block"
+	icon_state = "brig"
+
+/area/security/cellblock/prison_break()
+	for(var/obj/structure/closet/secure_closet/brig/temp_closet in src)
+		temp_closet.locked = 0
+		temp_closet.icon_state = temp_closet.icon_closed
+	for(var/obj/machinery/door_timer/temp_timer in src)
+		temp_timer.releasetime = 1
+	..()
+
 /area/security/prison
-	name = "\improper Security - Prison Wing"
+	name = "\improper Security - Prison"
 	icon_state = "sec_prison"
 
 /area/security/prison/prison_break()
@@ -1434,12 +1475,27 @@ area/space/atmosalert()
 		temp_timer.releasetime = 1
 	..()
 
+/area/security/prisonwing
+	name = "\improper Security - Prison Wing"
+	icon_state = "sec_prison"
+
+/area/security/prisonwing/prison_break()
+	for(var/obj/structure/closet/secure_closet/brig/temp_closet in src)
+		temp_closet.locked = 0
+		temp_closet.icon_state = temp_closet.icon_closed
+	for(var/obj/machinery/door_timer/temp_timer in src)
+		temp_timer.releasetime = 1
+
 /area/security/warden
 	name = "\improper Security - Warden's Office"
 	icon_state = "Warden"
 
 /area/security/armoury
 	name = "\improper Security - Armory"
+	icon_state = "Warden"
+
+/area/turret_protected/armouryexterior
+	name = "\improper Armory Exterior"
 	icon_state = "Warden"
 
 /area/security/detectives_office
@@ -1450,6 +1506,18 @@ area/space/atmosalert()
 /area/security/range
 	name = "\improper Security - Firing Range"
 	icon_state = "firingrange"
+
+/area/security/westbrig
+	name = "\improper Security - West Brig"
+	icon_state = "brig"
+
+/area/security/eastbrig
+	name = "\improper Security - East Brig"
+	icon_state = "brig"
+
+/area/security/equipment
+	name = "\improper Security - Equipment Storage"
+	icon_state = "brig"
 
 /area/security/tactical
 	name = "\improper Security - Tactical Equipment"

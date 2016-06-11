@@ -187,6 +187,18 @@ var/global/datum/shuttle_controller/shuttle_controller
 	shuttles["Research"] = shuttle
 	process_shuttles += shuttle
 
+////////////////////////////////////NEW PRISON SHUTTLE\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+	shuttle = new()
+	shuttle.warmup_time = 10
+	shuttle.area_offsite = locate(/area/shuttle/prison/prison)
+	shuttle.area_station = locate(/area/shuttle/prison/station)
+	shuttle.docking_controller_tag = "Prison_Shuttle_Door_Control"
+	shuttle.dock_target_station = "Security_dock_airlock"
+	shuttle.dock_target_offsite = "labour_security_dock_control"
+	shuttles["Security"] = shuttle
+	process_shuttles += shuttle
+
 	// ERT Shuttle
 	var/datum/shuttle/ferry/multidock/specops/ERT = new()
 	ERT.location = 0
@@ -251,4 +263,5 @@ var/global/datum/shuttle_controller/shuttle_controller
 
 	MS.warmup_time = 0
 	shuttles["Mercenary"] = MS
+
 
