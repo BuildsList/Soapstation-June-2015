@@ -156,3 +156,6 @@ obj/item/weapon/gun/energy/staff/focus
 			user << "<span class='warning'>The [src.name] will now strike only a single person.</span>"
 			projectile_type = "/obj/item/projectile/forcebolt"
 	*/
+
+/* Adminbus guns */
+

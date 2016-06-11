@@ -45,6 +45,8 @@ obj/item/weapon/gun/energy/retro
 	max_shots = 5 //to compensate a bit for self-recharging
 	self_recharge = 1
 
+
+
 /obj/item/weapon/gun/energy/lasercannon
 	name = "laser cannon"
 	desc = "With the laser cannon, the lasing medium is enclosed in a tube lined with uranium-235 and subjected to high neutron flux in a nuclear reactor core. This incredible technology may help YOU achieve high excitation rates with small laser volumes!"
@@ -131,3 +133,44 @@ obj/item/weapon/gun/energy/retro
 	item_state = "redtag"
 	projectile_type = /obj/item/projectile/beam/lastertag/red
 	required_vest = /obj/item/clothing/suit/redtag
+
+/obj/item/weapon/gun/energy/soapenergy
+	icon = 'icons/obj/soapstation_weapons.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/soapstation_lefthand_guns.dmi',
+		slot_r_hand_str = 'icons/mob/items/soapstation_righthand_guns.dmi',
+		)
+///START OF GAUSS WEAPONRY -Radiantflash ///
+/obj/item/weapon/gun/energy/soapenergy/gauss
+	name = "gauss pistol"
+	icon_state = "gausspistol"
+	item_state = "gauss"
+	desc = "An older model of the experimental Gauss weapon series. As it is unable to pass through glass, it was phased out during the mars-sol conflict due to the invention of laser carbines.Nevertheless, it still packs a punch and is easy to maintain, making it a favorite amongst sol privateers."
+	force = 5
+	fire_sound = 'sound/weapons/laser4.ogg' //lighter damage sound
+	slot_flags = SLOT_BELT
+	w_class = 2
+	projectile_type = /obj/item/projectile/energy/gauss
+	origin_tech = null
+	charge_cost = 150
+	self_recharge = 1
+	charge_meter = 1
+	fire_delay = 10 //old technology
+
+/obj/item/weapon/gun/energy/soapenergy/gaussrifle
+	name = "gauss rifle"
+	icon_state = "gaussrifle"
+	item_state = "gaussrifle"
+	desc = "An older model of the experimental Gauss weapon series. As it is unable to pass through glass, it was phased out during the mars-sol conflict due to the invention of laser carbines.Nevertheless, it still packs a punch and is easy to maintain, making it a favorite amongst sol privateers."
+	force = 5
+	fire_sound = 'sound/weapons/Gaussrifle.ogg'
+	slot_flags = SLOT_BELT|SLOT_BACK
+	w_class = 4
+	projectile_type = /obj/item/projectile/energy/gaussrifle
+	origin_tech = null
+	charge_cost =300
+	self_recharge = 1
+	charge_meter = 1
+	recoil = 1
+	fire_delay = 27 //old technology
+///END OF GAUSS WEAPONRY///

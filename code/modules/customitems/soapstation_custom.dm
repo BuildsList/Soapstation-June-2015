@@ -39,3 +39,12 @@
 	dat = "In the notebook there are numerous drawings of various crew-mates, locations, and scenes on the ship. They are of fairly good quality."
 	author = "Factory"
 	title = "Factory's sketchbook"
+
+/obj/item/clothing/accessory/fluff/RadiantFlash
+	name = "Zahirn Pendant"
+	desc = "This Pendant bears the symbol of the Zahirn Clan, A sub protectorate of the Kaytam Clan."
+	icon = 'icons/obj/custom_items.dmi'
+	icon_state = "vasharr_pendant"
+	item_state = "vasharr_pendant"
+	w_class = 2
+	slot_flags = SLOT_MASK | SLOT_TIE

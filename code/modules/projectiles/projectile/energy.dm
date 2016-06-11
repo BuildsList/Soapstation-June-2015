@@ -100,3 +100,49 @@
 	damage = 20
 	damage_type = TOX
 	irradiate = 20
+//Stun projectile for HOSgun
+
+/obj/item/projectile/energy/electrode/hosstunshot
+	name = "s-spark"
+	damage = 35
+	taser_effect = 1
+	agony = 60
+	damage_type = HALLOSS
+	stutter = 10
+
+
+//Gauss beam for gaussguns -RadiantFlash//
+/obj/item/projectile/energy/gauss
+	name = "gauss bolt"
+	icon_state = "gauss"
+	damage = 20
+	stun = 0
+	weaken = 1
+	stutter = 4
+	damage_type = BURN
+	pass_flags = PASSTABLE | PASSGRILLE
+	check_armour = "laser"
+
+/obj/item/projectile/energy/gaussweak //used for HoS gun.
+	name = "gauss bolt"
+	icon_state = "gauss"
+	damage = 15
+	stun = 0
+	weaken = 5
+	stutter = 4
+	damage_type = BURN
+	pass_flags = PASSTABLE | PASSGRILLE
+	check_armour = "laser"
+
+/obj/item/projectile/energy/gaussrifle
+	name = "gauss bolt"
+	icon_state = "gauss"
+	damage = 40
+	stun = 2
+	weaken = 2
+	stutter = 6
+	damage_type = BURN
+	pass_flags = PASSTABLE | PASSGRILLE
+	penetrating = 0
+	check_armour = "laser"
+//End of gaussguns//
