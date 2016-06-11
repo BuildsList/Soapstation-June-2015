@@ -103,7 +103,8 @@
 //Stun projectile for HOSgun
 
 /obj/item/projectile/energy/electrode/hosstunshot
-	name = "s-spark"
+	name = "Stun Electrode"
+	icon_state = "s-spark""
 	damage = 35
 	taser_effect = 1
 	agony = 60
