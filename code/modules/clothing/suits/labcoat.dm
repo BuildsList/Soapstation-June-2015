@@ -65,13 +65,7 @@
 	icon_open = "labcoat_cmoalt_open"
 	icon_closed = "labcoat_cmoalt"
 
-/obj/item/clothing/suit/storage/toggle/labcoat/pearcelabcoat
-	name = "chief medical officer labcoat"
-	desc = "A labcoat with command blue highlights."
-	icon = 'icons/obj/clothing/soapstation_gear.dmi'
-	icon_state = "pearcelabcoat_open"
-	icon_open = "pearcelabcoat_open"
-	icon_closed = "pearcelabcoat"
+
 
 /obj/item/clothing/suit/storage/toggle/labcoat/mad
 	name = "The Mad's labcoat"
@@ -109,3 +103,11 @@
 	icon_state = "labcoat_tox_open"
 	icon_open = "labcoat_tox_open"
 	icon_closed = "labcoat_tox"
+
+/obj/item/clothing/suit/storage/toggle/labcoat/pearcelabcoat
+	name = "Aiden's CMO labcoat"
+	desc = "A labcoat with command blue highlights."
+	icon = 'icons/mob/soapstation_suit.dmi'
+	icon_state = "pearcelabcoat_open_s"
+	icon_open = "pearcelabcoat_open"
+	icon_closed = "pearcelabcoat_s"

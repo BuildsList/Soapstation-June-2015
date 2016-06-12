@@ -15,3 +15,9 @@
 	shuttle_tag = "Research"
 	//req_access = list(access_research)
 	circuit = /obj/item/weapon/circuitboard/research_shuttle
+
+/obj/machinery/computer/shuttle_control/security
+	name = "prisoner shuttle control console"
+	shuttle_tag = "Security"
+	//req_access = list(access_research)
+	circuit = /obj/item/weapon/circuitboard/research_shuttle

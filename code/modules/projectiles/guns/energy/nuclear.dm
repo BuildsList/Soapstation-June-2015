@@ -29,12 +29,12 @@
 	force = 8 //looks heavier than a pistol
 	self_recharge = 1
 	modifystate = null
-	
+
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg'),
 		)
-	
+
 	var/lightfail = 0
 
 //override for failcheck behaviour
@@ -72,3 +72,28 @@
 	update_charge()
 	update_reactor()
 	update_mode()
+
+
+/obj/item/weapon/gun/energy/hosgun
+	name = "\improper X-01 MultiPhase Energy Gun"
+	desc = "This is a expensive, modern recreation of a antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time."
+	icon = 'icons/obj/soapstation_weapons.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/soapstation_lefthand_guns.dmi',
+		slot_r_hand_str = 'icons/mob/items/soapstation_righthand_guns.dmi',
+		)
+	icon_state = "hosstun100"
+	item_state = "hosstun100 "	//so the human update icon uses the icon_state instead.
+	fire_sound = 'sound/weapons/Taser.ogg'
+	max_shots = 10
+	charge_meter = 1
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 6, TECH_POWER = 4)
+	modifystate = "hosstun"
+	slot_flags = SLOT_BELT
+	force = 8 //looks heavier than a pistol
+
+	firemodes = list(
+		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/electrode/hosstunshot, modifystate="hosstun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="hoslaser", fire_sound='sound/weapons/Laser.ogg'),
+		list(mode_name="hypoxia", projectile_type=/obj/item/projectile/beam/omni, modifystate="hosother", fire_sound='sound/weapons/taser2.ogg'),
+				)
