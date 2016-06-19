@@ -2027,7 +2027,7 @@
 "aMY" = (/obj/effect/decal/cleanable/spiderling_remains,/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/maintenance/fsmaint)
 "aMZ" = (/obj/structure/disposalpipe/segment,/obj/machinery/atmospherics/pipe/simple/hidden/supply,/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/effect/decal/cleanable/dirt,/turf/simulated/floor/plating,/area/maintenance/fsmaint)
 "aNa" = (/obj/effect/decal/cleanable/dirt,/turf/simulated/wall,/area/maintenance/fsmaint)
-"aNb" = (/obj/structure/largecrate/fox/renault,/turf/simulated/floor/plating,/area/maintenance/fsmaint)
+"aNb" = (/obj/structure/largecrate/renault,/turf/simulated/floor/plating,/area/maintenance/fsmaint)
 "aNc" = (/obj/item/weapon/material/shard{icon_state = "medium"},/turf/simulated/floor/plating,/area/maintenance/library)
 "aNd" = (/obj/structure/filingcabinet,/turf/simulated/floor/plating,/area/maintenance/library)
 "aNe" = (/obj/structure/table/glass,/obj/item/weapon/card/robot,/obj/random/tool,/turf/simulated/floor/plating,/area/maintenance/library)
