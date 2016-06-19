@@ -85,7 +85,7 @@
 	name = "renault crate"
 	icon_state = "lisacrate"
 
-/obj/structure/largecrate/fox/renault/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/largecrate/renault/attackby(obj/item/weapon/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/weapon/crowbar))
 		new /mob/living/simple_animal/fox/renault(loc)
 	..()
