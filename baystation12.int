@@ -1,11 +1,11 @@
 // BEGIN_INTERNALS
 /*
-LAST_COMPILE_TIME: 1465627240
-DIR: code code\game code\game\gamemodes\cult code\game\gamemodes\cult\cultify code\game\jobs\job code\game\objects code\game\objects\effects\decals code\game\objects\items code\game\objects\items\weapons code\modules code\modules\customitems icons icons\mob icons\obj maps maps\Radiant's Maps External 
+LAST_COMPILE_TIME: 1467774346
+DIR: code code\datums\diseases code\datums\diseases\advance code\datums\helper_datums code\game\gamemodes\cult code\game\gamemodes\cult\cultify code\game\jobs\job code\game\objects\effects\decals code\game\objects\items code\game\objects\items\weapons code\modules code\modules\clothing code\modules\clothing\under code\modules\hydroponics icons icons\obj maps 
 AUTO_FILE_DIR: OFF
 MAP_ICON_TYPE: 0
 LAST_COMPILE_VERSION: 509.1319
-WINDOW: icons\obj\soapstation_storage.dmi;icons\obj\soapstation_weapons.dmi;maps\Radiant's Maps\exodus-rad.dmm;code\modules\customitems\soapstation_custom.dm;code\modules\customitems\item_defines.dm;code\game\objects\items\weapons\cigs_lighters.dm
-FILE: maps\Radiant's Maps\exodus-rad.dmm
+WINDOW: icons\obj\soapstation_storage.dmi;icons\obj\soapstation_weapons.dmi;icons\obj\drinks.dmi;icons\obj\soapstation_drinks.dmi;maps\exodus-1.dmm;icons\obj\soapstation_projectiles.dmi
+FILE: icons\obj\soapstation_projectiles.dmi
 */
 // END_INTERNALS

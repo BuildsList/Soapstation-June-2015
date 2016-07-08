@@ -100,17 +100,6 @@
 	damage = 20
 	damage_type = TOX
 	irradiate = 20
-//Stun projectile for HOSgun
-
-/obj/item/projectile/energy/electrode/hosstunshot
-	name = "Stun Electrode"
-	icon_state = "s-spark"
-	damage = 35
-	taser_effect = 1
-	agony = 60
-	damage_type = HALLOSS
-	stutter = 10
-
 
 //Gauss beam for gaussguns -RadiantFlash//
 /obj/item/projectile/energy/gauss
@@ -124,7 +113,7 @@
 	pass_flags = PASSTABLE | PASSGRILLE
 	check_armour = "laser"
 
-/obj/item/projectile/energy/gaussweak //used for HoS gun.
+/obj/item/projectile/energy/gaussweak.
 	name = "gauss bolt"
 	icon_state = "gauss"
 	damage = 15
@@ -147,3 +136,22 @@
 	penetrating = 0
 	check_armour = "laser"
 //End of gaussguns//
+
+//Stun projectile for HOSgun
+/obj/item/projectile/energy/electrode/hosstunshot //used for HoS gun
+	name = "Stun Electrode"
+	icon = 'icons/obj/soapstation_projectiles.dmi'
+	icon_state = "s-spark"
+	damage = 35
+	taser_effect = 1
+	agony = 65
+	damage_type = HALLOSS
+	stutter = 10
+
+/obj/item/projectile/energy/Plasma
+	name = "Plasma Blast"
+	icon_state = "plasmablast"
+	damage = 25
+	damage_type = BURN
+	pass_flags = PASSGRILLE
+	check_armour = "laser"

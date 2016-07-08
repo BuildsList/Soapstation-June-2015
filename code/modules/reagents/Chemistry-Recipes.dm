@@ -2043,3 +2043,24 @@
 	result = "luminol"
 	required_reagents = list("hydrogen" = 2, "carbon" = 2, "ammonia" = 2)
 	result_amount = 6
+
+datum/chemical_reaction/calypsocoffee
+	name = "Calypso Coffe"
+	id = "calypsocoffee"
+	result = "calypsocoffee"
+	required_reagents = list("coffee" = 2, "kahlua" = 1, "irishcream" = 1)
+	result_amount = 4
+
+datum/chemical_reaction/pinacolada
+	name = "Piña colada"
+	id = "pinacolada"
+	result = "pinacolada"
+	required_reagents = list("coffee" = 2, "kahlua" = 1, "irishcream" = 1)
+	result_amount = 3
+
+datum/chemical_reaction/shirleytemple
+	name= "Shirley temple"
+	id = "shirleytemple"
+	result = "shirleytemple"
+	required_reagents = list ("space_up" =3, "grenadine" =1)
+	result_amount = 4

@@ -30,7 +30,7 @@
 		return 1
 
 /obj/item/weapon/gun/projectile/sec
-	name = ".45 pistol"
+	name = ".NT Mk58"
 	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Found pretty much everywhere humans are. Uses .45 rounds."
 	icon_state = "secguncomp"
 	magazine_type = /obj/item/ammo_magazine/c45m/flash
@@ -40,7 +40,7 @@
 	load_method = MAGAZINE
 
 /obj/item/weapon/gun/projectile/sec/flash
-	name = ".45 signal pistol"
+	name = "NT Mk58 signal pistol"
 
 /obj/item/weapon/gun/projectile/sec/rubber
 	name = "NT Mk58"
@@ -50,6 +50,7 @@
 	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. This one has a sweet wooden grip. Uses .45 rounds."
 	name = "custom NT Mk58"
 	icon_state = "secgundark"
+	magazine_type = /obj/item/ammo_magazine/c45m/rubber
 
 /obj/item/weapon/gun/projectile/sec/hop
 	name = "\improper NT Mk58 signal pistol"

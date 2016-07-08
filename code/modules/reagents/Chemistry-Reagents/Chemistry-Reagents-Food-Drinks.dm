@@ -477,6 +477,16 @@
 	glass_name = "glass of watermelon juice"
 	glass_desc = "Delicious juice made from watermelon."
 
+/datum/reagent/drink/apple
+	name = "Apple Juice"
+	id = "applejuice"
+	description = "The delicious taste of a apple, now juice."
+	color = "#C3AF00"
+
+	glass_icon_state = "applejuice"
+	glass_name = "glass of Apple Juice"
+	glass_desc = "The delicious taste of a apple, now juice."
+
 // Everything else
 
 /datum/reagent/drink/milk
@@ -912,6 +922,17 @@
 	glass_icon_state = "nothing"
 	glass_name = "glass of nothing"
 	glass_desc = "Absolutely nothing."
+
+/datum/reagent/drink/shirleytemple
+	name = "Shirley Temple"
+	description = "Truly the drink of the most manly men."
+	id = "shirleytemple"
+	color = "#485000"
+
+	glass_icon_state = "shirleytemple"
+	glass_name = "glass of Shirley Temple"
+	glass_desc = "Truly the drink of the most manly men."
+	glass_center_of_mass = list("x"=17, "y"=14)
 
 /* Alcohol */
 
@@ -1964,3 +1985,27 @@
 	glass_name = "glass of special blend whiskey"
 	glass_desc = "Just when you thought regular station whiskey was good... This silky, amber goodness has to come along and ruin everything."
 	glass_center_of_mass = list("x"=16, "y"=12)
+
+/datum/reagent/ethanol/calypsocoffee
+	name = "Calypso Coffee"
+	id = "calypsocofee"
+	description = "A perfect blend of coffee, coffee liquor, and cream."
+	color = "#664300"
+	strength = 12
+
+	glass_icon_state = "calypsocoffee"
+	glass_name = "A glass of Calypso Coffee"
+	glass_desc ="A perfect blend of coffee, coffee liquor, and cream."
+	glass_center_of_mass = list("x"=18, "y"=17)
+
+/datum/reagent/ethanol/pinacolada
+	name = "Piña colada"
+	id = "pinacolada"
+	description = "A drink known for it's sweet, easy-drinking taste that masks a sizable amount of alcohal"
+	color = "#664300"
+	strength = 35
+
+	glass_icon_state = "pinacolada"
+	glass_name = "A glass of Piña colada "
+	glass_desc ="A drink known for it's sweet, easy-drinking taste that masks a sizable amount of alcohal"
+	glass_center_of_mass = list("x"=17, "y"=15)
