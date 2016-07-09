@@ -108,6 +108,7 @@
 	name = "Aiden's CMO labcoat"
 	desc = "A labcoat with command blue highlights."
 	icon = 'icons/mob/soapstation_suit.dmi'
+	icon_override = 'icons/mob/soapstation_suit.dmi'
 	icon_state = "pearcelabcoat_open_s"
-	icon_open = "pearcelabcoat_open"
+	icon_open = "pearcelabcoat_open_s"
 	icon_closed = "pearcelabcoat_s"

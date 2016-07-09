@@ -121,19 +121,15 @@
 							if(!(T.x >= 166 && T.x <= 169 && T.y >= 111 && T.y <= 113)) //server room
 								if(!(T.x == 166 && T.y == 108)) //phorochemistry
 									if(T.air)
-										if(T.air.gas["carbon_dioxide"])
-											T.air.gas["carbon_dioxide"] = 0
-										if(T.air.gas["phoron"])
-											T.air.gas["phoron"] = 0
+										for(var/gas_id in gas_data.gases)
+											if(T.air.gas[gas_id])
+												T.air.gas[gas_id] = 0
+												
 										if(T.air.gas["oxygen"])
 											T.air.gas["oxygen"] = 21.8
 										if(T.air.gas["nitrogen"])
-											T.air.gas["nitrogen"] = 81.01
-										if(T.air.gas["sleeping_agent"])
-											T.air.gas["sleeping_agent"] = 0
-										if(T.air.gas["volatile_fuel"])
-											T.air.gas["volatile_fuel"] = 0
-
+											T.air.gas["nitrogen"] = 81.08
+										
 										T.air.temperature = 293.15
 										T.air.update_values()
 

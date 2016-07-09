@@ -1,6 +1,7 @@
 
 /obj/item/clothing/under/soapstation
 	icon = 'icons/obj/clothing/soapstation_gear.dmi'
+	icon_override = 'icons/obj/clothing/soapstation_gear.dmi'
 
 /obj/item/clothing/under/soapstation/atmos_skirt
 	name = "Atmospheric Jumpskirt"
